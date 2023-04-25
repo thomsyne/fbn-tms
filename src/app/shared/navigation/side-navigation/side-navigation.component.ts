@@ -1,4 +1,4 @@
-import { EntityService } from './../../../pages/admin/entities/services/entity.service';
+
 import { StorageService } from './../../../core/services/storage.service';
 import {
   Component,
@@ -28,14 +28,14 @@ export class SideNavigationComponent implements OnInit {
   easeOut = false;
 
   constructor(
-    private entityService: EntityService,
+    //private entityService: EntityService,
     private storage: StorageService
   ) { }
 
   ngOnInit(): void {
-    if (this.storage.userEntity()){
-      this.getEntityDetail(this.storage.userEntity())
-    }
+    // if (this.storage.userEntity()){
+    //   this.getEntityDetail(this.storage.userEntity())
+    // }
    }
 
   close() {
@@ -48,18 +48,18 @@ export class SideNavigationComponent implements OnInit {
   }
 
   getEntityDetail(entityCode: string){
-    this.entityService.fetchSingleEntity(entityCode).subscribe((res) => {
+    // this.entityService.fetchSingleEntity(entityCode).subscribe((res) => {
 
-      if (!res.data.isActive) return;
+    //   if (!res.data.isActive) return;
 
-      document
-        .getElementById("sidenav-img")
-        .setAttribute("src", res.data.logo);
+    //   document
+    //     .getElementById("sidenav-img")
+    //     .setAttribute("src", res.data.logo);
 
-      document
-        .getElementById("sidenav-img")
-        .style.objectFit = 'contain'
-    });
+    //   document
+    //     .getElementById("sidenav-img")
+    //     .style.objectFit = 'contain'
+    // });
   }
 
 }

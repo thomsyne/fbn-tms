@@ -1,9 +1,10 @@
 .auth-layout {
   height: 100vh;
-  background: url("https://assetslogos.s3.eu-west-1.amazonaws.com/frontendassets/images/image__white__swirl__bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background: url("https://assetslogos.s3.eu-west-1.amazonaws.com/frontendassets/images/image__white__swirl__bg.svg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
   // overflow: hidden;
+  background-color: #ffffff;
 
   // padding: 4.5rem 0 0;
   display: flex;
@@ -20,7 +21,7 @@
     width: 400px;
     height: auto;
     background: #ffffff;
-    box-shadow: 0px 30px 25px #3333330d;
+    box-shadow: 40px 40px 40px 40px #3333330d;
     border-radius: 4px;
     padding: 38px 32px;
   }

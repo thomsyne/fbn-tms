@@ -3294,6 +3294,7 @@ main.layout-container .layout-container-content .content {
 // Logo fix
 .sidenav-image {
     height: 5rem;
+    object-fit: contain;
   }
   
   .table-container-mod {

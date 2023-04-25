@@ -7,4 +7,8 @@ export class AuthService {
 
 constructor() { }
 
+logout(){
+  
+}
+
 }

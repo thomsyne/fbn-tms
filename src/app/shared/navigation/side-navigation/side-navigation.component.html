@@ -6,7 +6,7 @@
     (click)="close()"
   />
   <img
-    src="https://assetslogos.s3.eu-west-1.amazonaws.com/frontendassets/logos/logo__rexretail.svg"
+    src="../../../../assets/logos/fbn-auth-logo.png"
     class="sidenav-image"
     id="sidenav-img"
     alt="logo"
@@ -20,7 +20,7 @@
           routerLinkActive="active"
           [routerLink]="nav.url"
           (click)="close()"
-          *hasPermission="[nav.permission]"
+          *appPermission="[nav.permission]"
         >
           <ng-container>
             <svg class="icon">
@@ -40,7 +40,7 @@
         routerLinkActive="active"
         [routerLink]="nav.url"
       >
-        <ng-container *hasPermission="permissions">
+        <ng-container *appPermission="permissions">
           <svg class="icon">
             <use [attr.xlink:href]="nav.iconUrl"></use>
           </svg>
