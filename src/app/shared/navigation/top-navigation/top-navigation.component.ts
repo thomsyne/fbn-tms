@@ -24,7 +24,7 @@ export class TopNavigationComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   // @Input() user: string;
-  @Input() links: string;
+  @Input() links: any;
 
   @Output() clickLink = new EventEmitter();
   @Output() toggleHamburger = new EventEmitter();
@@ -52,6 +52,11 @@ export class TopNavigationComponent implements OnInit, OnDestroy {
     //     this.changeDetector.markForCheck();
     //   })
     // );
+    this.user = {
+      firstName: 'Tomi',
+      lastName: 'Taiwo',
+      userRole: 'Admin'
+    }
   }
 
   linkClicked(linkName: string) {

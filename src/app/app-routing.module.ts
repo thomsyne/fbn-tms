@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.AuthModule
       ),
   },
+  {
+    path: "",
+    loadChildren: () =>
+      import("./pages/client/layout/layout.module").then(
+        (m) => m.LayoutModule
+      ),
+  },
   
 ];
 

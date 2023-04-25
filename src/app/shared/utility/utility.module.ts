@@ -1,6 +1,5 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { PermissionDirective } from "src/app/core/directives/permission.directive";
 import { InitialsPipe } from "src/app/core/pipes/initials.pipe";
 import { CapitalizePipe } from "./capitalize.pipe";
 import { CustomCurrencyPipe } from "./custom-currency.pipe";
@@ -9,6 +8,7 @@ import { FormatNumberPipe } from "./format-number.pipe";
 import { LabelledDropdownComponent } from "./labelled-dropdown/labelled-dropdown.component";
 import { LoaderComponent } from "./loader/loader.component";
 import { SanitizeOperationTypePipe } from "./sanitize-operation-type.pipe";
+import { PermissionsDirective } from "src/app/core/directives/permissions.directive";
 
 @NgModule({
     declarations: [
@@ -18,8 +18,8 @@ import { SanitizeOperationTypePipe } from "./sanitize-operation-type.pipe";
        LabelledDropdownComponent,
        CapitalizePipe,
        FormatNumberPipe,
-      // PermissionDirective,
        InitialsPipe,
+       PermissionsDirective
       // CustomCurrencyPipe
      ],
     imports: [CommonModule],
@@ -30,8 +30,8 @@ import { SanitizeOperationTypePipe } from "./sanitize-operation-type.pipe";
        LabelledDropdownComponent,
        CapitalizePipe,
        FormatNumberPipe,
-      // PermissionDirective,
        InitialsPipe,
+       PermissionsDirective
       // CustomCurrencyPipe
     ],
   })

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AlertModule, UtilityModule } from './shared/utility';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthModule } from './pages/auth/auth.module';
+import { LayoutModule } from './pages/client/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthModule } from './pages/auth/auth.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    UtilityModule
+    UtilityModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

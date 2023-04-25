@@ -4,6 +4,8 @@ import { DynamicFormComponent } from 'src/app/shared/dynamic-form';
 import { ButtonState } from 'src/app/shared/dynamic-table';
 import { LoaderComponent } from 'src/app/shared/utility';
 import { loginClientDetailsForm, errors } from './login.constants';
+import { Router } from '@angular/router';
+import { AppRoutes } from 'src/app/core';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +23,11 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
   errors = errors;
 
   subscriptions: Subscription[] = [];
+  appConstants = AppRoutes
 
-  constructor() { }
+  constructor(
+    private readonly router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -32,7 +37,7 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
   }
 
   logIn(){
-    
+    this.router.navigate([this.appConstants.dashboard])
   }
 
   ngOnDestroy(): void {

@@ -15,9 +15,17 @@ export class StorageService {
     }
   }
 
+  isAdmin(){
+    return true
+  }
+
   updateUserData() {
     if (this.getLoggedInUser() !== null)
       this.userData.next(this.getLoggedInUser());
+  }
+
+  getPermissons(): string[]{
+    return ['VIEW_DASHBOARD']
   }
 
   getLoggedInUser(): LoggedInUserObject | null {
