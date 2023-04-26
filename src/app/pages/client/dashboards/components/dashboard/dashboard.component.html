@@ -1,0 +1,114 @@
+<div class="cards-container">
+  <div class="container pt-5">
+    <div class="row">
+      <!-- Top Card -->
+      <div class="row-col__lg-9 h-100 pr-4">
+        <div class="row flex-modify">
+          <div class="top-section flexed mb-3 row-col__md-6">
+            <div class="intro flex-1">
+              <h3 class="heading__4 no-margin">Hello, Tomi Taiwo</h3>
+              <span class="text__default text-dashboard-gray sub-text">
+                Welcome back!
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- START: Top Summary -->
+      <div class="row-col__lg-12 br-4 bg-white flexed mb-3">
+        <div *ngFor="let stat of dashboardSummaryData; let i = index" class="dashboard-stat row-col__lg-3 text-center">
+          <svg class="icon">
+            <use [attr.xlink:href]="stat.image"></use>
+          </svg>
+          <h2>
+            {{stat.isAmount ? (stat.value | currency:'NGN':'₦') : stat.value}}
+          </h2>
+          <p class="text-gray__dark">{{stat.tagline}}</p>
+        </div>
+      </div>
+      <!-- END: Top Summary -->
+
+      <!-- START: Two Column Charts -->
+      <div class="row-col__lg-12 br-4 flexed mb-3">
+
+        <div class="row-col__lg-6 bg-white mr-2 py-3 px-3">
+          <div class="stat-head w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Transaction Approval Rate</h4>
+            <div class="row-col__md-3 mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+          <app-bar-chart [chartOptions]="transactionApprovalChart"></app-bar-chart>
+        </div>
+
+        <div class="row-col__lg-5 br-4 bg-white ml-2 py-3 px-3">
+          <div class="stat-head w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Failed Transaction Summary</h4>
+            <div class="mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+          <app-donut-chart [chartOptions]="failedTransactionChart" ></app-donut-chart>
+        </div>
+      </div>
+      <!-- END: Two Column Charts -->
+
+      <!-- START: Three Column Charts -->
+      <div class="row-col__lg-12 br-4 flexed mb-3">
+
+        <div class="row-col__lg-4 bg-white mr-1 pb-2">
+          <div class="stat-head mx-1 w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Failed Transaction Summary</h4>
+            <div class="mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+          <app-donut-chart [chartOptions]="transactionsByRoutingRule" ></app-donut-chart>
+        </div>
+
+        <div class="row-col__lg-4 bg-white mr-1 pb-2">
+          <div class="stat-head mx-1 w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Top Issues on Terminal</h4>
+            <div class="mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+          <app-bar-chart [chartOptions]="topTerminalIssues" ></app-bar-chart>
+        </div>
+
+        <div class="row-col__lg-4 bg-white mr-1 pb-2">
+
+          <div class="stat-head mx-1 w-100 bdr-bottom-thin">
+            <h5 class="text-gray__dark">Merchants Activity</h5>
+
+            <div class="merchant-card bdr br-4" >
+              
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- END: Three Column Charts -->
+
+    </div>
+  </div>
+</div>
+
+
+<!-- <app-first-action></app-first-action> -->

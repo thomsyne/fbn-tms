@@ -1,0 +1,21 @@
+@use '../../../../../../styles.scss';
+
+p {
+    font-size: 12px;
+}
+
+svg {
+    height: 50px;
+}
+
+.dashboard-stat {
+    margin: 44px 0px;
+
+    &:not(:last-child) {
+        @extend .border-right-gray;
+    }
+}
+
+.merchant-card {
+    
+}
