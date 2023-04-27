@@ -89,22 +89,114 @@
           <app-bar-chart [chartOptions]="topTerminalIssues" ></app-bar-chart>
         </div>
 
-        <div class="row-col__lg-4 bg-white mr-1 pb-2">
+        <div class="row-col__lg-4 bg-white pb-2">
 
-          <div class="stat-head mx-1 w-100 bdr-bottom-thin">
+          <div class="stat-head ml-2 mr-2 w-90 bdr-bottom-thin mb-3">
             <h5 class="text-gray__dark">Merchants Activity</h5>
 
-            <div class="merchant-card bdr br-4" >
-              
-            </div>
+            <div class="merchant-card bdr br-4 p-2" >
+              <img src="../../../../../../assets/icons/merchants-dashboard.svg" />
+              <span class="flexed">
+                <p class="text-gray__dark mb-0">Active Merchants:&nbsp; </p>
+                <h4>8000</h4>
+              </span>
 
+              <span class="flexed">
+                <p class="text-gray__dark mb-0">Pending Merchants:&nbsp; </p>
+                <h4>2000</h4>
+              </span>
+            </div>
           </div>
 
+          <hr/>
 
+          <div class="stat-head mx-2 w-90 bdr-bottom-thin">
+            <h5 class="text-gray__dark">Terminal Activity</h5>
+
+            <div class="merchant-card bdr br-4 p-2" >
+              <img src="../../../../../../assets/icons/terminal-dashboard.svg" />
+              <span class="flexed">
+                <p class="text-gray__dark mb-0">Active Terminals:&nbsp; </p>
+                <h4>8000</h4>
+              </span>
+
+              <span class="flexed">
+                <p class="text-gray__dark mb-0">Damaged Terminals:&nbsp; </p>
+                <h4>2000</h4>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END: Three Column Charts -->
+
+      <!-- START: Two Column Tables -->
+      <div class="row-col__lg-12 br-4 flexed mb-3">
+
+        <div class="row-col__lg-5_7 bg-white p-2 mr-1">
+
+          <div class="stat-head mx-1 w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Top Active Terminals</h4>
+            <div class="mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+
+          <table class="w-100 data-table mt-1">
+            <thead class="data-table__headings">
+              <tr>
+                <th>Name</th>
+                <th>Account</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody class="data-table__body">
+              <tr class="data-table__row">
+                <td class="data-table__row-col">Tomi Taiwo</td>
+                <td class="data-table__row-col">0139312383</td>
+                <td class="data-table__row-col">2,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row-col__lg-5_7 bg-white p-2 ml-1">
+
+          <div class="stat-head mx-1 w-100 flexed justify-content-between">
+            <h4 class="text-gray__dark">Top Performing Merchants</h4>
+            <div class="mt-2 dropdown-position">
+              <lib-labelled-dropdown
+                [params]="filterDropdownParameters"
+                (itemSelected)="setDateRange($event)"
+              ></lib-labelled-dropdown>
+            </div>
+          </div>
+
+          <table class="w-100 data-table mt-1">
+            <thead class="data-table__headings">
+              <tr>
+                <th>Name</th>
+                <th>Account</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody class="data-table__body">
+              <tr class="data-table__row">
+                <td class="data-table__row-col">Tomi Taiwo</td>
+                <td class="data-table__row-col">0139312383</td>
+                <td class="data-table__row-col">2,000</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
       </div>
-      <!-- END: Three Column Charts -->
+      <!-- END: Two Column Tables -->
 
     </div>
   </div>

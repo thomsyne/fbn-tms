@@ -554,6 +554,9 @@ span, p, td, a, li, label, input, textarea, article, button, section {
 .w-100 {
     width: 100%!important;
 }
+.w-90 {
+    width: 90%!important;
+}
 .w-75 {
     width: 75%!important;
 }
@@ -2813,6 +2816,9 @@ input[type='checkbox'].switch+label {
 .row-col__lg-5 {
     flex: 0 0 auto;
     width: 41.66667%}
+.row-col__lg-5_7 {
+    flex: 0 0 auto;
+    width: 47.7%}
 .row-col__lg-6 {
     flex: 0 0 auto;
     width: 50%}

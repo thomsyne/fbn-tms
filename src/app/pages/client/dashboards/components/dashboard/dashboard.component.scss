@@ -17,5 +17,14 @@ svg {
 }
 
 .merchant-card {
-    
+    .flexed {
+        p, h4 {
+            align-self: center;
+            margin: 4px 0px;
+        }
+    }
+}
+
+hr {
+    opacity: 0.2;
 }
