@@ -10,9 +10,21 @@ export const adminNavConfig: SideNavigation[] = [
   },
   {
     name: "My Merchants",
-    url: "/merchants",
+    url: "merchants",
     iconUrl: "../../../../assets/icons/sprite.svg#merchant",
     permission: 'CAN_VIEW_MERCHANT'
+  },
+  {
+    name: "Users",
+    url: "users",
+    iconUrl: "../../../../assets/icons/sprite.svg#user",
+    permission: 'CAN_VIEW_ALL_USER'
+  },
+  {
+    name: "Terminal",
+    url: "/terminall",
+    iconUrl: "../../../../assets/icons/sprite.svg#terminal",
+    permission: 'CAN_VIEW_ALL_USER'
   },
   {
     name: "Entities",
@@ -43,13 +55,7 @@ export const adminNavConfig: SideNavigation[] = [
     url: "/reports",
     iconUrl: "../../../../assets/icons/sprite.svg#report",
     permission: 'CAN_VIEW_ADMIN_REPORT'
-  },
-  {
-    name: "Users",
-    url: "/staff",
-    iconUrl: "../../../../assets/icons/sprite.svg#user",
-    permission: 'CAN_VIEW_ALL_USER'
-  },
+  }
 ];
 
 export const adminNavConfigMinor: SideNavigation[] = [
@@ -90,12 +96,6 @@ export const clientNavConfig: SideNavigation[] = [
     url: "/staff",
     iconUrl: "../../../../assets/icons/sprite.svg#user",
     permission: 'CAN_VIEW_USER'
-  },
-  {
-    name: "Devices",
-    url: "/devices",
-    iconUrl: "../../../../assets/icons/sprite.svg#device",
-    permission: 'CAN_VIEW_DEVICE'
   },
   // {
   //   name: "Shops",

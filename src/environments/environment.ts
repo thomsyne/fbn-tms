@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_URL: 'https://44cb-90-254-71-102.ngrok-free.app/mtms/api/v3/'
 };
 
 /*

@@ -7,6 +7,7 @@ import { AlertModule, UtilityModule } from './shared/utility';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthModule } from './pages/auth/auth.module';
 import { LayoutModule } from './pages/client/layout/layout.module';
+import { InterceptorProviders } from './core/interceptors/interceptors';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { LayoutModule } from './pages/client/layout/layout.module';
     UtilityModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [InterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
