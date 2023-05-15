@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: "dashboard",
-        loadChildren: () => import("../../client/dashboard/dashboard.module").then(
+        loadChildren: () => import("../dashboards/components/dashboard/dashboard.module").then(
           m => m.DashboardModule
         ),
         canActivate: [ViewDashboardGuard]
