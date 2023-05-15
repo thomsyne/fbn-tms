@@ -5,7 +5,7 @@ import { ButtonState } from 'src/app/shared/dynamic-table';
 import { AlertService, LoaderComponent } from 'src/app/shared/utility';
 import { loginClientDetailsForm, errors } from './login.constants';
 import { Router } from '@angular/router';
-import { AppRoutes, LoginDetailsObject } from 'src/app/core';
+import { AppRoutes, LoginDetailsObject, StorageService } from 'src/app/core';
 import { AuthService } from 'src/app/core/access-control/auth.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -31,7 +31,8 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
     private readonly alertService: AlertService,
     private readonly authService: AuthService,
     private readonly deviceService: DeviceDetectorService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -64,9 +65,14 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
     this.authService.login(payload).subscribe((response) => {
       this.loader.end();
       if(response.responseCode == '00'){
+        
+        this.storageService.storeLoggedInUser(response);
+
         this.alertService.success('Login Successful')
         this.loginForm.form.reset()
         this.router.navigate([this.appConstants.dashboard])
+
+
       } else {
         this.alertService.error(response.responseMessage)
       }

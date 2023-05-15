@@ -74,7 +74,7 @@ export class PaginationComponent implements OnDestroy, OnChanges {
   changePageSize(size: number) {
     this.pageSize = size;
     this.currentPage = 1;
-    this.pageIndex = 0;
+    this.pageIndex = 1;
 
     this.paginationService.setPageSize(size);
 

@@ -11,7 +11,7 @@ export abstract class BaseTableComponent implements OnDestroy {
   // Pagination
   paginationValues: IPagerContent = {
     pageSize: 10,
-    pageIndex: 0,
+    pageIndex: 1,
     currentPage: 1,
     paginationType: 0,
   };

@@ -56,7 +56,7 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     );
 
     // this.count$ = response$.pipe(map((res) => res.recordsTotal));
-     this.tableData$ = response$.pipe(map((res) => res.data));
+     this.tableData$ = response$.pipe(map((res) => res.content));
   }
 
     setFilters(filters) {
@@ -68,7 +68,7 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     this.getUsers();
   }
 
-    toggleCreateShopModal() {
+    toggleCreateUserModal() {
     this.showCreateUserModal = !this.showCreateUserModal;
   }
 
