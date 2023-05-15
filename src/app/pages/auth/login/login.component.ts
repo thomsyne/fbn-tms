@@ -2,10 +2,12 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewChecked
 import { Subscription } from 'rxjs';
 import { DynamicFormComponent } from 'src/app/shared/dynamic-form';
 import { ButtonState } from 'src/app/shared/dynamic-table';
-import { LoaderComponent } from 'src/app/shared/utility';
+import { AlertService, LoaderComponent } from 'src/app/shared/utility';
 import { loginClientDetailsForm, errors } from './login.constants';
 import { Router } from '@angular/router';
-import { AppRoutes } from 'src/app/core';
+import { AppRoutes, LoginDetailsObject } from 'src/app/core';
+import { AuthService } from 'src/app/core/access-control/auth.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +28,9 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
   appConstants = AppRoutes
 
   constructor(
+    private readonly alertService: AlertService,
+    private readonly authService: AuthService,
+    private readonly deviceService: DeviceDetectorService,
     private readonly router: Router
   ) { }
 
@@ -33,11 +38,39 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
   }
 
   ngAfterViewChecked(): void {
-    
+    this.subscriptions.push(
+      this.loginForm.form.statusChanges.subscribe(
+        (status: ButtonState) => (this.buttonDisabled = status)
+      )
+    );
   }
 
   logIn(){
-    this.router.navigate([this.appConstants.dashboard])
+
+    this.loader.start();
+
+    let { email, password } = this.loginForm.formValues;
+
+    let payload: LoginDetailsObject = {
+      channelType: "WEB",
+      entityCode: "FBN",
+      username: email,
+      password,
+      refreshToken: "",
+      language: "en",
+      deviceId: this.deviceService.getDeviceInfo().os_version,
+    }
+
+    this.authService.login(payload).subscribe((response) => {
+      this.loader.end();
+      if(response.responseCode == '00'){
+        this.alertService.success('Login Successful')
+        this.loginForm.form.reset()
+        this.router.navigate([this.appConstants.dashboard])
+      } else {
+        this.alertService.error(response.responseMessage)
+      }
+    })
   }
 
   ngOnDestroy(): void {

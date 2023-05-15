@@ -1,0 +1,28 @@
+<div  class="cards-container">
+  <div  class="container">
+
+    <div class="reposition-breadcrumbs" *ngIf="!currentUrl.includes('merchants')">
+      <ul class="breadcrumbs-container">
+        <li
+          class="crumb"
+          style="display: block"
+          routerLink="/customers"
+          queryParamsHandling="preserve"
+        >
+          <a class="crumb-link">Merchants</a>
+        </li>
+    
+        <li
+          class="crumb active-crumb"
+          *ngIf="currentUrl.includes('merchants')"
+        >
+          <a class="crumb-link">Merchants Details</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="" style="padding-top: 20px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
