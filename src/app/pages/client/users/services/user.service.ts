@@ -33,7 +33,7 @@ export class UserService {
         { params }
       )
       .pipe(
-        catchError(() => of({ data: [] } as TableDataResponse<User>)),
+        catchError(() => of({ content: [] } as TableDataResponse<User>)),
         shareReplay()
       );
   }

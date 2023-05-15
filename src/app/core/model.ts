@@ -55,12 +55,19 @@ export interface LoggedInUserObject {
     refreshToken: string
  }
  export interface TableDataResponse<T> {
-    data: T[];
-    hasNextPage: boolean;
-    hasPreviousPage: boolean;
-    pageIndex: number;
-    pageSize: number;
-    recordsFiltered: number;
-    recordsTotal: number;
-    totalPages: number;
+    content: T[];
+    pageable: string,
+    totalElements: number,
+    totalPages: number,
+    last: boolean,
+    numberOfElements: number,
+    size: number,
+    number: number,
+    first: boolean,
+    sort: {
+        sorted: boolean,
+        unsorted: boolean,
+        empty: boolean
+    },
+    empty: boolean
   }

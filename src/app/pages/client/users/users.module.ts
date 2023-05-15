@@ -8,11 +8,13 @@ import { UtilityModule } from "src/app/shared/utility";
 import { UsersContainerComponent } from "./components/users-container/users-container.component";
 import { AllUsersComponent } from "./components/all-users/all-users.component";
 import { UsersRoutingModule } from "./users-routing.module";
+import { CreateUserComponent } from "./components/create-user/create-user.component";
 
 @NgModule({
     declarations: [
       UsersContainerComponent,
-      AllUsersComponent
+      AllUsersComponent,
+      CreateUserComponent
     ],
     imports: [
       CommonModule,

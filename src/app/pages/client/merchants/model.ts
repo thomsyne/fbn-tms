@@ -1,0 +1,23 @@
+export interface Merchant {
+    id: number,
+    merchantRef: string,
+    merchantId: string,
+    entityCode: string,
+    merchantName: string,
+    address: string,
+    state: string,
+    countryCode: string,
+    bvn: string,
+    email: string,
+    operatingAccount: string,
+    merchantCollectionAccount: string,
+    otherAccount: string,
+    mobileNo: string,
+    merchantType: string,
+    merchantCode: string,
+    mccCode: string,
+    createdDate: number,
+    createdBy: string,
+    modifiedBy: any,
+    modifiedDate: any
+}

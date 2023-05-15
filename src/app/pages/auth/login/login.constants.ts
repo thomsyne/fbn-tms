@@ -2,10 +2,16 @@ import { Validators } from "@angular/forms";
 import { Field, FieldType, Error } from "src/app/shared/dynamic-form";
 
 export const loginClientDetailsForm: Field[] = [
+  // {
+  //   name: "email",
+  //   type: FieldType.TEXTFIELD,
+  //   validation: [Validators.required, Validators.email],
+  //   gridStyle: "row-col",
+  // },
   {
     name: "email",
     type: FieldType.TEXTFIELD,
-    validation: [Validators.required, Validators.email],
+    validation: [Validators.required],
     gridStyle: "row-col",
   },
   {

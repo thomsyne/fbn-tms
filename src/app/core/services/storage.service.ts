@@ -19,6 +19,11 @@ export class StorageService {
     return true
   }
 
+  storeLoggedInUser(data: LoggedInUserObject) {
+    localStorage.setItem("xTD_tA32", JSON.stringify(data));
+    this.updateUserData();
+  }
+
   updateUserData() {
     if (this.getLoggedInUser() !== null)
       this.userData.next(this.getLoggedInUser());

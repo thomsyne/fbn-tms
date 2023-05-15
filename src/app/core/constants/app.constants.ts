@@ -14,6 +14,10 @@ export const UserServiceRoutes = {
   getAllUsers: "users",
 };
 
+export const MerchantServiceRoutes = {
+  getAllMerchants: "merchants/getMerchants"
+}
+
 export const ServiceRequestHeaders = {
   "x-source-code": "ANP3APPLOTWEB",
   "x-client-id": "APPDEV_56666CDXGH8953EqUTYLOT",

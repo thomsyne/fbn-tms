@@ -20,14 +20,14 @@
     <div class="flexed">
       <button
       class="btn btn-outline-primary no-margin-r"
-      (click)="toggleCreateShopModal()"
+      (click)="toggleCreateUserModal()"
       >
         Manage Roles
       </button>
 
       <button
         class="btn btn-primary no-margin-r"
-        (click)="toggleCreateShopModal()"
+        (click)="toggleCreateUserModal()"
       >
         Add User
       </button>
@@ -67,3 +67,11 @@
     *ngIf="!(tableData$ | async)"
   ></lib-skeleton-table>
 </div>
+
+<app-create-user
+  *ngIf="showCreateUserModal"
+  (closeModal)="toggleCreateUserModal()"
+  (refreshData)="getUsers()"
+>
+
+</app-create-user>
