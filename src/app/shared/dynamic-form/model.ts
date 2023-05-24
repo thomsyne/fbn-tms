@@ -22,7 +22,9 @@ export interface Field {
   parent?: string;
   validation?: Validators[];
   visible?: boolean;
-  primitiveDisabled?: any
+  primitiveDisabled?: any,
+  isSender?: boolean,
+  readonly?: boolean
 }
 
 export interface KeyValuePair {

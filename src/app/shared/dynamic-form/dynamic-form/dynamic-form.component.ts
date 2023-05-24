@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { Field, Error, KeyValuePair } from "../model";
 
@@ -27,6 +27,8 @@ export class DynamicFormComponent implements OnInit {
    * Use this to get the value of the form
    */
   public formValues: any;
+
+  @Output() fieldChange = new EventEmitter<{fieldName: string, value: any}>()
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -134,5 +136,9 @@ export class DynamicFormComponent implements OnInit {
       });
     }
     return formValues;
+  }
+
+  handleOutput(output: any){
+    this.fieldChange.emit(output)
   }
 }

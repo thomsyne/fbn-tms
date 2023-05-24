@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, shareReplay } from 'rxjs';
-import { MerchantServiceRoutes, TableDataResponse } from 'src/app/core';
+import { ApiResponse, MerchantServiceRoutes, TableDataResponse } from 'src/app/core';
 import { environment } from 'src/environments/environment';
 import { Merchant } from '../model';
 
@@ -35,9 +35,16 @@ fetchMerchants(
       { params }
     )
     .pipe(
-      catchError(() => of({ content: [] } as TableDataResponse<Merchant>)),
+      catchError(() => of({ data: {} } as TableDataResponse<Merchant>)),
       shareReplay()
     );
+}
+
+getMerchantById(merchantId: string): Observable<ApiResponse<Merchant>> {
+  return this.httpClient
+    .get<ApiResponse<Merchant>>(
+      `${BASE_URL}${MERCHANT_SERVICE_URL.getMerchantById}/${merchantId}`,
+    )
 }
 
 }

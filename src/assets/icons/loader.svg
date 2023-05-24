@@ -2,8 +2,8 @@
 <defs>
   <pattern id="pid-0.07758967457933452" x="0" y="0" width="25.6" height="25.6" patternUnits="userSpaceOnUse">
     <g transform="scale(0.1)"><defs><g id="stripe-0.9975489463433378">
-  <path d="M256 -128 L384 -128 L-128 384 L-128 256 Z" fill="#fbcacc"></path>
-  <path d="M384 0 L384 128 L128 384 L0 384 Z" fill="#fbcacc"></path>
+  <path d="M256 -128 L384 -128 L-128 384 L-128 256 Z" fill="#003B65"></path>
+  <path d="M384 0 L384 128 L128 384 L0 384 Z" fill="#003B65"></path>
 </g></defs>
 
 <g>

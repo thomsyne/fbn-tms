@@ -24,7 +24,7 @@ export class UserService {
     let params = new HttpParams();
     if (options.username) params = params.append("name", options.username);
 
-    if (offset) params = params.append("pageIndex", offset);
+    if (offset) params = params.append("pageNumber", offset);
     if (limit) params = params.append("pageSize", limit);
 
     return this.httpClient
@@ -33,7 +33,7 @@ export class UserService {
         { params }
       )
       .pipe(
-        catchError(() => of({ content: [] } as TableDataResponse<User>)),
+        catchError(() => of({ data: {} } as TableDataResponse<User>)),
         shareReplay()
       );
   }

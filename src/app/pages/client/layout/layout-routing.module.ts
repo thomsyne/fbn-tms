@@ -29,6 +29,13 @@ const routes: Routes = [
         ),
         canActivate: [ViewDashboardGuard]
       },
+      {
+        path: "terminals",
+        loadChildren: () => import("../terminals/terminals.module").then(
+          m => m.TerminalsModule
+        ),
+        canActivate: [ViewDashboardGuard]
+      },
     ]
   }
 ];

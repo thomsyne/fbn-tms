@@ -1022,8 +1022,8 @@ ul.breadcrumbs-container li.crumb a.crumb-link:hover {
 }
 .btn-outline-primary:hover {
     color: #003B65;
-    background-color: #fbcacc;
-    border: 1px solid #fbcacc;
+    background-color: #cacffb;
+    border: 1px solid #caccfb;
 }
 .btn-transparent {
     background-color: transparent;
@@ -2270,6 +2270,23 @@ input[type='radio']:checked {
     white-space: nowrap;
     padding-right: 20px;
 }
+
+.data-table__body .col-active {
+    color:#11A500
+}
+
+.data-table__body .col-pending {
+    color:#F6A91D
+}
+
+.data-table__body .col-info {
+    color:#4F84CE
+}
+
+.data-table__body .col-misc {
+    color:#8E8357
+}
+
 .data-table__body .data-table__row-col.dropdown-container:hover .dropdown {
     display: block;
 }
@@ -3652,12 +3669,14 @@ main.layout-container .layout-container-content .content {
   // updates to design system
   
   // TODO::move everything below to the Design System
-//   .loader-container .loader {
-//     background-image: url("./assets/icons/loader.svg") !important;
-//   }
+  .loader-container .loader {
+    background-image: url("./assets/icons/loader.svg") !important;
+  }
   
   .flag {
     position: fixed !important;
     right: 1vw;
   }
+
+
   

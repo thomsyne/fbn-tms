@@ -3,9 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { BaseTableComponent } from 'src/app/core';
 import { PaginationService, FileGenerationService } from 'src/app/shared/dynamic-table';
-import { usersTableSettings, filters } from '../../../users/components/all-users/all-users.constants';
-import { UserService } from '../../../users/services/user.service';
-import { downloadCSvheaders } from './all-merchants.constants';
+import { downloadCSvheaders, filters, merchantsTableSettings } from './all-merchants.constants';
 import { MerchantService } from '../../services/merchant.service';
 
 @Component({
@@ -24,7 +22,7 @@ export class AllMerchantsComponent extends BaseTableComponent implements OnInit 
     private fileService: FileGenerationService
   ) {
     super(paginationService);
-    this.tableSettings = usersTableSettings;
+    this.tableSettings = merchantsTableSettings;
     this.filters = filters;
     this.downloadCSvheaders = downloadCSvheaders;
     this.buttonSettings = [
@@ -61,7 +59,8 @@ export class AllMerchantsComponent extends BaseTableComponent implements OnInit 
     );
 
     // this.count$ = response$.pipe(map((res) => res.recordsTotal));
-     this.tableData$ = response$.pipe(map((res) => res.content));
+     this.tableData$ = response$.pipe(map((res) => res.data.content));
+     console.log(this.tableData$)
   }
 
     setFilters(filters) {

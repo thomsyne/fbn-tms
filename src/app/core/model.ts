@@ -54,20 +54,33 @@ export interface LoggedInUserObject {
     userPermissionList: any[],
     refreshToken: string
  }
- export interface TableDataResponse<T> {
-    content: T[];
-    pageable: string,
-    totalElements: number,
-    totalPages: number,
-    last: boolean,
-    numberOfElements: number,
-    size: number,
-    number: number,
-    first: boolean,
-    sort: {
-        sorted: boolean,
-        unsorted: boolean,
+  export interface TableDataResponse<T> {
+    data: {
+        content: T[];
+        pageable: string,
+        totalElements: number,
+        totalPages: number,
+        last: boolean,
+        numberOfElements: number,
+        size: number,
+        number: number,
+        first: boolean,
+        sort: {
+            sorted: boolean,
+            unsorted: boolean,
+            empty: boolean
+        },
         empty: boolean
     },
-    empty: boolean
+    error: any,
+    status: string,
+    statusCode: number
+  }
+
+
+  export interface ApiResponse<T> {
+    data: T,
+    error: any,
+    status: string,
+    statusCode: number
   }

@@ -105,4 +105,23 @@ export class DynamicTableComponent implements OnInit {
     });
     this.getCheckedItemList();
   }
+
+  fetchRecordClass(record: any, status: string): boolean{
+    if (typeof(record) == 'string'){
+
+      switch(status){
+        case 'Active':
+          return record.toLowerCase() == status.toLowerCase()
+        case 'Pending':
+          return (record.toLowerCase() == status.toLowerCase() || record.toLowerCase() == 'lost' )
+        case 'Info':
+          return (record.toLowerCase() == status.toLowerCase() || record.toLowerCase() == 'damaged' )
+        default:
+          return false
+      }
+
+    } else {
+      return false
+    }
+  }
 }
