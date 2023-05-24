@@ -1,12 +1,12 @@
 import { ColumnSetting, Filter, FilterFormat } from "src/app/shared/dynamic-table";
 
-// export const filters: Filter[] = [
-//     {
-//       displayName: "Merchant Name",
-//       filterName: "merchantName",
-//       type: FilterFormat.TEXT_FIELD,
-//     },
-//   ];
+export const filters: Filter[] = [
+    {
+      displayName: "Merchant Name",
+      filterName: "merchantName",
+      type: FilterFormat.TEXT_FIELD,
+    },
+  ];
   
   export const merchantsTableSettings: ColumnSetting[] = [
     {

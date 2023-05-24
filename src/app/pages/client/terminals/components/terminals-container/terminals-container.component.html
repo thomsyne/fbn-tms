@@ -1,0 +1,36 @@
+<lib-loader></lib-loader>
+<div  class="cards-container">
+  <div  class="container">
+
+    <div class="reposition-breadcrumbs" *ngIf="!currentUrl.includes('terminals')">
+      <ul class="breadcrumbs-container">
+        <li
+          class="crumb"
+          style="display: block"
+          routerLink="/terminals"
+          queryParamsHandling="preserve"
+        >
+          <a class="crumb-link">Terminals</a>
+        </li>
+
+        <li
+          class="crumb active-crumb"
+          *ngIf="currentUrl.includes('create')"
+        >
+          <a class="crumb-link">Add Terminal</a>
+        </li>
+    
+        <li
+          class="crumb active-crumb"
+          *ngIf="currentUrl.includes('details')"
+        >
+          <a class="crumb-link">Terminal Details</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="" style="padding-top: 20px">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

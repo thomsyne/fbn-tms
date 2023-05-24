@@ -6,7 +6,7 @@
         class="{{ field.gridStyle }}"
         style="position: relative"
       >
-        <app-dynamic-field [field]="field"></app-dynamic-field>
+        <app-dynamic-field (outputChange)="handleOutput($event)" [field]="field"></app-dynamic-field>
         <div [ngxErrors]="field.name">
           <span
             class="validation-message  {{ error.text ? 'invalid' : 'valid' }} {{

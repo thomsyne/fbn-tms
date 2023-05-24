@@ -36,6 +36,9 @@
       </td>
       <td
         class="data-table__row-col"
+        [class.col-active]="fetchRecordClass(record[map.primaryKey], 'Active')"
+        [class.col-pending]="fetchRecordClass(record[map.primaryKey], 'Pending')"
+        [class.col-info]="fetchRecordClass(record[map.primaryKey], 'Info')"
         *ngFor="let map of columnMaps"
         [appStyleCell]="record[map.primaryKey]"
         [key]="map.primaryKey"

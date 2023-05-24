@@ -7,7 +7,7 @@ import {
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { AuthServiceRoutes, UserServiceRoutes, ServiceRequestHeaders, MerchantServiceRoutes } from "../constants";
+import { AuthServiceRoutes, UserServiceRoutes, ServiceRequestHeaders, MerchantServiceRoutes, TerminalServiceRoutes, LookupServiceRoutes } from "../constants";
 import { StorageService } from "../services";
 
 const BASE_URL = environment.BASE_URL;
@@ -15,6 +15,8 @@ const BASE_URL = environment.BASE_URL;
 const AUTH_ROUTES = AuthServiceRoutes;
 const USER_ROUTES = UserServiceRoutes;
 const MERCHANT_ROUTES = MerchantServiceRoutes;
+const TERMINAL_ROUTES = TerminalServiceRoutes;
+const LOOKUP_ROUTES = LookupServiceRoutes;
 
 const SERVICE_HEADERS = ServiceRequestHeaders
 
@@ -34,7 +36,17 @@ export class InterceptorService {
     const clientEndpoints = [
       USER_ROUTES.getAllUsers,
 
-      MERCHANT_ROUTES.getAllMerchants
+      MERCHANT_ROUTES.getAllMerchants,
+
+      TERMINAL_ROUTES.getAllTerminals,
+      TERMINAL_ROUTES.addTerminal,
+      TERMINAL_ROUTES.getDownloadTerminals
+    ]
+
+    const endpointsWithURLParams = [
+      MERCHANT_ROUTES.getMerchantById,
+      LOOKUP_ROUTES.getAllByCategory,
+      TERMINAL_ROUTES.getTerminalById
     ]
 
     if (authEndpoints.includes(req.url.slice(BASE_URL.length))) {
@@ -46,6 +58,14 @@ export class InterceptorService {
     }
 
     if (clientEndpoints.includes(req.url.slice(BASE_URL.length))) {
+      const jwtToken = this.storageService.getLoggedInUser()?.ticketID;
+      headers = new HttpHeaders({
+        Authorization: "Bearer " + jwtToken,
+        ...SERVICE_HEADERS
+      });
+    }
+    
+    if (endpointsWithURLParams.includes(req.url.slice(BASE_URL.length).split('/')[0] + '/' + req.url.slice(BASE_URL.length).split('/')[1] )) {
       const jwtToken = this.storageService.getLoggedInUser()?.ticketID;
       headers = new HttpHeaders({
         Authorization: "Bearer " + jwtToken,

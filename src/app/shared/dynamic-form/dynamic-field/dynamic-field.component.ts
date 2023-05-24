@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from "@angular/core";
 import { FormControl, FormGroupDirective } from "@angular/forms";
 import { Field, FieldType } from "../model";
 
@@ -12,6 +12,8 @@ export class DynamicFieldComponent implements OnInit {
 
   @ViewChild("password", { static: false })
   password: ElementRef<HTMLInputElement>;
+
+  @Output() outputChange = new EventEmitter<{fieldName: string, value: any}>()
 
   public control: FormControl;
   public FieldType = FieldType;
@@ -44,5 +46,15 @@ export class DynamicFieldComponent implements OnInit {
         this.password.nativeElement.setAttribute("type", "password");
       }
     }
+  }
+
+  emitValue(event: any, fieldName: string){
+
+    let payload = {
+      fieldName,
+      value: event.target.value
+    }
+
+    this.outputChange.emit(payload)
   }
 }

@@ -101,6 +101,8 @@
           class="field four"
           placeholder="wont be shown"
           [formControl]="control"
+          (keyup)="field.isSender ? emitValue($event, field?.name) : null"
+          [readOnly]="field.readonly"
         />
         <label class="field">{{
           field.displayValue ? field.displayValue : (field.name | sentenceCase)

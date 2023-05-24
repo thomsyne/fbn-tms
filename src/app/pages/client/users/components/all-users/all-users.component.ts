@@ -46,6 +46,9 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
   }
 
   getUsers() {
+
+    console.log(this.paginationValues)
+
     const { username } = this.filterValues;
     const response$ = this.userService.fetchAllUsers(
       this.paginationValues.pageIndex,
@@ -56,13 +59,13 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     );
 
     // this.count$ = response$.pipe(map((res) => res.recordsTotal));
-     this.tableData$ = response$.pipe(map((res) => res.content));
+     this.tableData$ = response$.pipe(map((res) => res.data.content));
   }
 
     setFilters(filters) {
     this.filterValues = filters;
     this.paginationValues.pageIndex =
-      +this.route.snapshot.queryParamMap.get("pageIndex") || 0;
+      +this.route.snapshot.queryParamMap.get("pageIndex") || 1;
     this.paginationValues.currentPage =
       +this.route.snapshot.queryParamMap.get("currentPage") || 1;
     this.getUsers();

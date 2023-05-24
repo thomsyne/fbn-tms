@@ -1,0 +1,59 @@
+<lib-loader></lib-loader>
+<div class="row" *ngIf="terminalInfo">
+  <div class="details-section--card row-col__md-4">
+    <div class="details-section--card_header">
+      <h4 class="heading__4">{{terminalInfo.terminalId}}</h4>
+      <p> {{terminalInfo.terminalCondition}}</p>
+    </div>
+    <div class="metadata-container">
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Brand</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.brand}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Model</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.terminalModel}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Serial Number</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.serialNo}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">PTSP</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.ptsp}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">OS Version</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.osVersion}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Merchant Name</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.merchantName}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Date Created</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.createdDate}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Last transacting Date</span>
+        <span class="metadata-entry_value">
+          {{terminalInfo.lastActivityDate}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

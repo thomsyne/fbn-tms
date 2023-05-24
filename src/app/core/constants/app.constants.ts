@@ -4,6 +4,9 @@ export const AuthRoutes = {
 
 export const AppRoutes = {
   dashboard: "dashboard",
+  merchants: "merchants",
+  terminals: "terminals",
+  createTerminal: "terminals/create"
 };
 
 export const AuthServiceRoutes = {
@@ -11,11 +14,23 @@ export const AuthServiceRoutes = {
 };
 
 export const UserServiceRoutes = {
-  getAllUsers: "users",
+  getAllUsers: "usermanager/getUserMasterList",
 };
 
 export const MerchantServiceRoutes = {
-  getAllMerchants: "merchants/getMerchants"
+  getAllMerchants: "merchants/getMerchants",
+  getMerchantById: "merchants/getByMerchantId"
+}
+
+export const TerminalServiceRoutes = {
+  getAllTerminals: "terminals/getTerminals",
+  addTerminal: "terminals/save",
+  getTerminalById: "terminals/getByTerminalId",
+  getDownloadTerminals: "terminals/terminals"
+}
+
+export const LookupServiceRoutes = {
+  getAllByCategory: "lookupdata/getdatabycategorycode"
 }
 
 export const ServiceRequestHeaders = {
@@ -29,3 +44,15 @@ export const ServiceRequestHeaders = {
   "X-XSS-Protection": "1",
   "Expect-CT": "max-age=3600, enforce"
 };
+
+export const statuses: [string, string][] = [
+  ['Active', 'Active'],
+  ['Inactive', 'Inactive']
+]
+
+export const conditions: [string, string][] = [
+  ['Active', 'Active'],
+  ['Under Repair', 'Repair'],
+  ['Damaged', 'Damaged'],
+  ['Lost', 'Lost']
+]

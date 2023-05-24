@@ -22,7 +22,7 @@ export const adminNavConfig: SideNavigation[] = [
   },
   {
     name: "Terminal",
-    url: "/terminall",
+    url: "/terminals",
     iconUrl: "../../../../assets/icons/sprite.svg#terminal",
     permission: 'CAN_VIEW_ALL_USER'
   },
