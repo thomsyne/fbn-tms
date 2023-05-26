@@ -1,0 +1,36 @@
+<lib-loader></lib-loader>
+<section class="section-center-create">
+  <div class="form-central">
+    <div class="form-central__headings">
+      <h4 class="heading__4">Merchant Request Form</h4>
+      <span class="text__default"
+        >This request will be sent to the head office for approval.</span
+      >
+    </div>
+
+    <div class="form-central__content">
+      <div class="form-central__form">
+        <div class="form-parent">
+          <div class="left">
+            <lib-dynamic-form
+              #createMerchantForm
+              [fieldset]="form"
+              [errors]="errors"
+            ></lib-dynamic-form>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-central__content-actions">
+        <button class="btn btn-white" routerLink="/merchants">Cancel</button>
+        <button
+          class="btn btn-primary"
+          [disabled]="buttonDisabled === 'INVALID'"
+          (click)="addMerchant()"
+        >
+          Submit For Approval
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

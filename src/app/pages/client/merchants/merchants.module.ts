@@ -8,20 +8,22 @@ import { UtilityModule } from "src/app/shared/utility";
 import { MerchantsRoutingModule } from "./merchants-routing.module";
 import { AllMerchantsComponent } from "./components/all-merchants/all-merchants.component";
 import { MerchantsContainerComponent } from "./components/merchants-container/merchants-container.component";
+import { CreateMerchantComponent } from "./components/create-merchant/create-merchant.component";
 
 @NgModule({
-    declarations: [
-      AllMerchantsComponent,
-      MerchantsContainerComponent
-    ],
-    imports: [
-      CommonModule,
-      MerchantsRoutingModule,
-      DynamicTableModule,
-      UtilityModule,
-      SkeletonModule,
-      DynamicFormModule,
-      ModalModule
-    ]
-  })
-  export class MerchantsModule { }
+  declarations: [
+    AllMerchantsComponent,
+    MerchantsContainerComponent,
+    CreateMerchantComponent,
+  ],
+  imports: [
+    CommonModule,
+    MerchantsRoutingModule,
+    DynamicTableModule,
+    UtilityModule,
+    SkeletonModule,
+    DynamicFormModule,
+    ModalModule,
+  ],
+})
+export class MerchantsModule {}
