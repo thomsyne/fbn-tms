@@ -21,6 +21,18 @@ export const adminNavConfig: SideNavigation[] = [
     permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
+    name: "Transactions",
+    url: "transactions",
+    iconUrl: "../../../../assets/icons/sprite.svg#transactions",
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
+  },
+  {
+    name: "Reports",
+    url: "/reports",
+    iconUrl: "../../../../assets/icons/sprite.svg#report",
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
+  },
+  {
     name: "Terminals",
     url: "/terminals",
     iconUrl: "../../../../assets/icons/sprite.svg#terminal",
@@ -48,12 +60,6 @@ export const adminNavConfig: SideNavigation[] = [
     name: "Devices",
     url: "/devices",
     iconUrl: "../../../../assets/icons/sprite.svg#device",
-    permission: 'MANAGE_SYSTEM_CONFIGURATION'
-  },
-  {
-    name: "Reports",
-    url: "/reports",
-    iconUrl: "../../../../assets/icons/sprite.svg#report",
     permission: 'MANAGE_SYSTEM_CONFIGURATION'
   }
 ];

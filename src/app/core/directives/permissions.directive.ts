@@ -52,7 +52,6 @@ export class PermissionsDirective {
     let hasPermission = false;
 
     if (this.currentUser && this.currentUser.userPermissionList) {
-       console.log(this.currentUser.userPermissionList);
 
       for (const checkPermission of this.permissions) {
         const permissionFound = this.currentUser.userPermissionList.map((x) => x.code).find(
