@@ -50,6 +50,7 @@ export class InterceptorService {
       USER_ROUTES.addUser,
 
       MERCHANT_ROUTES.getAllMerchants,
+      MERCHANT_ROUTES.addMerchant,
 
       TERMINAL_ROUTES.getAllTerminals,
       TERMINAL_ROUTES.addTerminal,
@@ -61,14 +62,14 @@ export class InterceptorService {
     const endpointsWithURLParams = [
       MERCHANT_ROUTES.getMerchantById,
       LOOKUP_ROUTES.getAllByCategory,
-      TERMINAL_ROUTES.getTerminalById
-    ]
+      TERMINAL_ROUTES.getTerminalById,
+    ];
 
     if (authEndpoints.includes(req.url.slice(BASE_URL.length))) {
       //const jwtToken = this.storageService.getLoggedInUser().ticketID;
       headers = new HttpHeaders({
         //Authorization: "Bearer " + jwtToken
-        ...SERVICE_HEADERS
+        ...SERVICE_HEADERS,
       });
     }
 
@@ -76,16 +77,23 @@ export class InterceptorService {
       const jwtToken = this.storageService.getLoggedInUser()?.ticketID;
       headers = new HttpHeaders({
         Authorization: "Bearer " + jwtToken,
-        ...SERVICE_HEADERS
+        ...SERVICE_HEADERS,
       });
       this.checkToken()
     }
-    
-    if (endpointsWithURLParams.includes(req.url.slice(BASE_URL.length).split('/')[0] + '/' + req.url.slice(BASE_URL.length).split('/')[1] )) {
+
+    if (
+      endpointsWithURLParams.includes(
+        req.url.slice(BASE_URL.length).split("/")[0] +
+          "/" +
+          req.url.slice(BASE_URL.length).split("/")[1]
+      )
+    ) {
       const jwtToken = this.storageService.getLoggedInUser()?.ticketID;
+
       headers = new HttpHeaders({
         Authorization: "Bearer " + jwtToken,
-        ...SERVICE_HEADERS
+        ...SERVICE_HEADERS,
       });
       this.checkToken()
     }
