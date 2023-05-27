@@ -9,7 +9,7 @@ import {
   OnDestroy,
 } from "@angular/core";
 import { Subscription } from "rxjs";
-import { UserDetails, StorageService } from "src/app/core";
+import { UserDetails, StorageService, LoggedInUserObject } from "src/app/core";
 import { AuthService } from "src/app/core/access-control/auth.service";
 
 @Component({
@@ -20,7 +20,7 @@ import { AuthService } from "src/app/core/access-control/auth.service";
 })
 export class TopNavigationComponent implements OnInit, OnDestroy {
   initials: string;
-  user: UserDetails;
+  user: LoggedInUserObject;
   subscriptions: Subscription[] = [];
 
   // @Input() user: string;
@@ -38,25 +38,20 @@ export class TopNavigationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     window.onbeforeunload = () => this.ngOnDestroy();
 
-    // this.subscriptions.push(
-    //   this.storageService.userData$.subscribe((user) => {
-    //     this.user = user.userDetails;
+    this.subscriptions.push(
+      this.storageService.userData$.subscribe((user) => {
+        this.user = user;
 
-    //     const names = `${this.user.firstName} ${this.user.lastName}`.split(" ");
+        const names = `${this.user.fullname}`.split(" ");
 
-    //     if (names.length > 1) {
-    //       this.initials = `${names[0][0]}${names[1][0]}`.toUpperCase();
-    //     } else {
-    //       this.initials = `${names[0][0]}`.toUpperCase();
-    //     }
-    //     this.changeDetector.markForCheck();
-    //   })
-    // );
-    this.user = {
-      firstName: 'Tomi',
-      lastName: 'Taiwo',
-      userRole: 'Admin'
-    }
+        if (names.length > 1) {
+          this.initials = `${names[0][0]}${names[1][0]}`.toUpperCase();
+        } else {
+          this.initials = `${names[0][0]}`.toUpperCase();
+        }
+        this.changeDetector.markForCheck();
+      })
+    );
   }
 
   linkClicked(linkName: string) {

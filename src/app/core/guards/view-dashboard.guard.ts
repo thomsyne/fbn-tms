@@ -17,7 +17,7 @@ import { AuthRoutes } from "../constants";
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const permissions: any[] = this.storage.getPermissons();
         
-        if (permissions.includes("VIEW_DASHBOARD")) {
+        if (permissions.includes("MANAGE_SYSTEM_CONFIGURATION")) {
             return true;
           } else {
             this.router.navigate([this.authRoutes.login]);

@@ -15,11 +15,6 @@ export interface LoginDetailsObject {
 }
 
 export interface LoggedInUserObject {
-    userDetails: any,
-    userRole: string,
-    firstName: string,
-    lastName: string
-
     username: string,
     userID: string,
     pwd: string,
@@ -50,6 +45,7 @@ export interface LoggedInUserObject {
     terminalId: string,
     forcePwdChange: string,
     address: string,
+    userRole: string,
     userRoles: any,
     userPermissionList: any[],
     refreshToken: string

@@ -6,55 +6,55 @@ export const adminNavConfig: SideNavigation[] = [
     name: "Dashboard",
     url: "dashboard",
     iconUrl: "../../../../assets/icons/sprite.svg#dashboard",
-    permission: 'VIEW_DASHBOARD'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "My Merchants",
     url: "merchants",
     iconUrl: "../../../../assets/icons/sprite.svg#merchant",
-    permission: 'CAN_VIEW_MERCHANT'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Users",
     url: "users",
     iconUrl: "../../../../assets/icons/sprite.svg#user",
-    permission: 'CAN_VIEW_ALL_USER'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
-    name: "Terminal",
+    name: "Terminals",
     url: "/terminals",
     iconUrl: "../../../../assets/icons/sprite.svg#terminal",
-    permission: 'CAN_VIEW_ALL_USER'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Entities",
     url: "/entities",
     iconUrl: "../../../../assets/icons/sprite.svg#entities",
-    permission: 'CAN_VIEW_SUBSCRIPTION'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Banks",
     url: "/banks",
     iconUrl: "../../../../assets/icons/sprite.svg#banks",
-    permission: 'CAN_VIEW_MERCHANT'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Subscriptions",
     url: "/subscriptions",
     iconUrl: "../../../../assets/icons/sprite.svg#pay",
-    permission: 'CAN_VIEW_SUBSCRIPTION'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Devices",
     url: "/devices",
     iconUrl: "../../../../assets/icons/sprite.svg#device",
-    permission: 'CAN_VIEW_ALL_DEVICES'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   },
   {
     name: "Reports",
     url: "/reports",
     iconUrl: "../../../../assets/icons/sprite.svg#report",
-    permission: 'CAN_VIEW_ADMIN_REPORT'
+    permission: 'MANAGE_SYSTEM_CONFIGURATION'
   }
 ];
 

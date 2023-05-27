@@ -1,0 +1,122 @@
+<lib-loader></lib-loader>
+<div class="row flexed body-wrapper" *ngIf="merchantInfo">
+  <div class="details-section--card row-col__md-3">
+    <div class="details-section--card_header">
+      <h4 class="heading__4">{{merchantInfo.merchantName}}</h4>
+      <p> {{merchantInfo.status}}</p>
+    </div>
+    <div class="metadata-container">
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Request Type</span>
+        <span class="metadata-entry_value">
+          <!-- {{merchantInfo.requestType}} -->
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Last Activity Date</span>
+        <span class="metadata-entry_value">
+          {{merchantInfo.lastActivityDate}}
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Merchant Account</span>
+        <span class="metadata-entry_value">
+          <!-- {{merchantInfo.merchantAccount}} -->
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Merchant Category</span>
+        <span class="metadata-entry_value">
+          <!-- {{merchantInfo.merchantCategory}} -->
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">No of Terminals</span>
+        <span class="metadata-entry_value">
+          <!-- {{merchantInfo.noOfTerminals}} -->
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Branch</span>
+        <span class="metadata-entry_value">
+          <!-- {{merchantInfo.branch}} -->
+        </span>
+      </div>
+      <div class="metadata-entry">
+        <span class="metadata-entry_name">Comment</span>
+        <span class="metadata-entry_value">
+          <!-- {{terminalInfo.comment}} -->
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="true" class="view-table view row-col__md-6">
+
+    <div class="table-wrapper-header">
+      <p>Terminal Details</p>
+      <hr/>
+    </div>
+
+      <div class="data-container">
+        <table class="data-table">
+          <thead class="data-table__headings">
+            <tr>
+              <th>Name</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+    
+          <tbody class="data-table__body">
+            <tr class="data-table__row">
+              <td class="data-table__row-col">
+                Tomi
+              </td>
+              <td class="data-table__row-col">
+                Masters
+              </td>
+            </tr>
+
+            <tr class="data-table__row">
+              <td class="data-table__row-col">
+                Tobi
+              </td>
+              <td class="data-table__row-col">
+                B.Sc
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+  <div class="view row-col__md-2">
+    <div class="topnav">
+      <div class="top-nav-wrapper">
+        <img
+          class="hamburger"
+          src="https://assetslogos.s3.eu-west-1.amazonaws.com/frontendassets/icons/icon__hamburger__menu__black.svg"
+          (click)="toggleHamburger.emit()"
+        />
+        <div class="topnav-container">
+          <div class="topnav-container-details">
+            <h4>Actions</h4>
+            <!-- <span>{{ user.userRole }}</span> -->
+          </div>
+          <div style="height: 100%; display: flex; align-items: center">
+            <svg style="width: 16px; height: 16px">
+              <use
+                xlink:href="../../../../assets/icons/sprite.svg#arrow-down-icon"
+              ></use>
+            </svg>
+          </div>
+          <div class="topnav-container-dropdown">
+            <a *ngFor="let link of links" (click)="dropDownClick(link)">{{ link }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>

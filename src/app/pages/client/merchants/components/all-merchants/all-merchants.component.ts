@@ -37,14 +37,42 @@ export class AllMerchantsComponent
     this.buttonSettings = [
       {
         title: "Open",
-        params: ["id"],
+        params: ["merchantId"],
         class: ["btn__sm", "btn", "btn-outline-primary"],
-        func: (id) => {
-          this.router.navigate([`/users/${id}/details`], {
-            queryParams: {
-              id: id,
-            },
-          });
+        func: (merchantId) => {
+          this.router.navigate([`merchants/${merchantId}/details`]);
+        },
+      },
+      {
+        title: "Assign Terminal",
+        params: ["merchantId"],
+        class: ["btn__sm", "btn", "btn-outline-primary"],
+        func: (merchantId) => {
+          //this.router.navigate([`products/${id}/stocks`]);
+        },
+      },
+      {
+        title: "Update MSC Charge",
+        params: ["merchantId"],
+        class: ["btn__sm", "btn", "btn-outline-primary"],
+        func: (merchantId) => {
+          //this.router.navigate([`products/${id}/stocks`]);
+        },
+      },
+      {
+        title: "Generate QR Code",
+        params: ["merchantId"],
+        class: ["btn__sm", "btn", "btn-outline-primary"],
+        func: (merchantId) => {
+          //this.router.navigate([`products/${id}/stocks`]);
+        },
+      },
+      {
+        title: "Generate USSD Code",
+        params: ["merchantId"],
+        class: ["btn__sm", "btn", "btn-outline-primary"],
+        func: (merchantId) => {
+          //this.router.navigate([`products/${id}/stocks`]);
         },
       },
     ];

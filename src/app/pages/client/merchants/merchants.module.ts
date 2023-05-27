@@ -9,12 +9,14 @@ import { MerchantsRoutingModule } from "./merchants-routing.module";
 import { AllMerchantsComponent } from "./components/all-merchants/all-merchants.component";
 import { MerchantsContainerComponent } from "./components/merchants-container/merchants-container.component";
 import { CreateMerchantComponent } from "./components/create-merchant/create-merchant.component";
+import { MerchantDetailsComponent } from "./components/merchant-details/merchant-details.component";
 
 @NgModule({
   declarations: [
     AllMerchantsComponent,
     MerchantsContainerComponent,
     CreateMerchantComponent,
+    MerchantDetailsComponent
   ],
   imports: [
     CommonModule,

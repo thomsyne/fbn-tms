@@ -30,7 +30,11 @@ export class StorageService {
   }
 
   getPermissons(): string[]{
-    return ['VIEW_DASHBOARD']
+    if (this.getLoggedInUser().userPermissionList){
+      return this.getLoggedInUser().userPermissionList.map((x) => x.code)
+    } else {
+      return []
+    }
   }
 
   getLoggedInUser(): LoggedInUserObject | null {
