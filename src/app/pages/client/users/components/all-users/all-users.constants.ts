@@ -19,11 +19,11 @@ export const filters: Filter[] = [
       header: "Username",
     },
     {
-      primaryKey: "fullName",
-      header: "fullName",
+      primaryKey: "fullname",
+      header: "Full Name",
     },
     {
-      primaryKey: "role",
+      primaryKey: "userRole",
       header: "User Role",
     },
     {

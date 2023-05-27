@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, of, shareReplay } from "rxjs";
-import { TableDataResponse, UserServiceRoutes } from "src/app/core";
-import { User } from "../model";
+import { ApiResponse, TableDataResponse, TempTableDataResponse, UserServiceRoutes } from "src/app/core";
+import { User, UserProfileRole } from "../model";
 import { environment } from "src/environments/environment";
 
 const BASE_URL = environment.BASE_URL;
@@ -20,7 +20,7 @@ export class UserService {
     options?: {
       username: any;
     }
-  ): Observable<TableDataResponse<User>> {
+  ): Observable<TempTableDataResponse<User>> {
     let params = new HttpParams();
     if (options.username) params = params.append("name", options.username);
 
@@ -28,13 +28,37 @@ export class UserService {
     if (limit) params = params.append("pageSize", limit);
 
     return this.httpClient
-      .get<TableDataResponse<User>>(
+      .get<TempTableDataResponse<User>>(
         `${BASE_URL}${USER_SERVICE_URL.getAllUsers}`,
         { params }
       )
       .pipe(
-        catchError(() => of({ data: {} } as TableDataResponse<User>)),
+        catchError(() => of({ content: {} } as TempTableDataResponse<User>)),
         shareReplay()
       );
+  }
+
+  fetchUserProfileRoles(
+    offset: number,
+    limit: number,
+    options?: {
+      entityCode: any;
+    }
+  ): Observable<UserProfileRole[]> {
+    let params = new HttpParams();
+    if (options.entityCode) params = params.append("entityCode", options.entityCode);
+
+    if (offset) params = params.append("pageNumber", offset);
+    if (limit) params = params.append("pageSize", limit);
+
+    return this.httpClient
+      .get<UserProfileRole[]>(
+        `${BASE_URL}${USER_SERVICE_URL.getUserProfileRoles}`,
+        { params }
+      )
+  }
+
+  createUser(form: Partial<User>){
+    return this.httpClient.post<ApiResponse<any>>(`${BASE_URL}${USER_SERVICE_URL.addUser}`, form)
   }
 }

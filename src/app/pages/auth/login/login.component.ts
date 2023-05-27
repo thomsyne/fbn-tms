@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewChecked, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, finalize } from 'rxjs';
 import { DynamicFormComponent } from 'src/app/shared/dynamic-form';
 import { ButtonState } from 'src/app/shared/dynamic-table';
 import { AlertService, LoaderComponent } from 'src/app/shared/utility';
@@ -62,7 +62,12 @@ export class LoginComponent implements AfterViewChecked, OnDestroy {
       deviceId: this.deviceService.getDeviceInfo().os_version,
     }
 
-    this.authService.login(payload).subscribe((response) => {
+    this.authService.login(payload).pipe(
+      finalize(() => {
+        this.loader.end();
+        this.ngAfterViewChecked()
+      })
+    ).subscribe((response) => {
       this.loader.end();
       if(response.responseCode == '00'){
         

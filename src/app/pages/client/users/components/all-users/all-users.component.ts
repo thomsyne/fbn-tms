@@ -59,7 +59,7 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     );
 
     // this.count$ = response$.pipe(map((res) => res.recordsTotal));
-     this.tableData$ = response$.pipe(map((res) => res.data.content));
+     this.tableData$ = response$.pipe(map((res) => res.content));
   }
 
     setFilters(filters) {

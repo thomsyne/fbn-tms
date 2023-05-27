@@ -11,44 +11,43 @@ export const createUserModalData: ModalMetaData = {
 
 export const createUserFormFields: Field[] = [
   {
-    name: "firstName",
-    displayValue: "First Name",
+    name: "firstname",
+    displayValue: "First Name *",
     type: FieldType.TEXTFIELD,
     validation: [Validators.required],
   },
   {
-    name: "lastName",
-    displayValue: "Last Name",
+    name: "middlename",
+    displayValue: "Middle Name",
+    type: FieldType.TEXTFIELD,
+  },
+  {
+    name: "lastname",
+    displayValue: "Last Name *",
     type: FieldType.TEXTFIELD,
     validation: [Validators.required],
   },
   {
-    name: "phoneNumber",
-    displayValue: "Phone Number",
+    name: "mobileNo",
+    displayValue: "Phone Number *",
     type: FieldType.TEXTFIELD,
     validation: [Validators.required],
   },
   {
     name: "email",
-    displayValue: "Email Address",
+    displayValue: "Email Address *",
     type: FieldType.TEXTFIELD,
     validation: [Validators.required, Validators.email],
   },
   {
     name: "userRole",
-    displayValue: "Staff Role",
+    displayValue: "Staff Role *",
     type: FieldType.SELECTDROPDOWN,
     validation: [Validators.required],
-    // options: new Map([
-    //   ["Administrator", "Administrator"],
-    //   ["Cashier", "Cashier"],
-    //   ["Finance", "Finance"],
-    //   ["Supervisor", "Supervisor"],
-    // ]),
   },
   {
     name: "branchCode",
-    displayValue: "Branch Code",
+    displayValue: "Branch Code *",
     type: FieldType.SELECTDROPDOWN,
     validation: [Validators.required],
   },

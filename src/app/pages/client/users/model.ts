@@ -1,8 +1,27 @@
 export interface User {
     id: number,
     username: string,
-    fullName: string,
+    fullname: string,
     role: string,
     email: string,
-    branchCode: string
+    branchCode: string,
+    firstname?: string,
+    lastname?: string,
+    middlename?: string,
+    password?: string,
+    entityCode?: string,
+    mobileNo?: string,
+    userRole?: string,
+    status?: string,
+    language?: string,
+    country?: string
+
+}
+
+export interface UserProfileRole {
+    id: number,
+    username: string,
+    entityCode: string,
+    roleCode: string,
+    status: string
 }

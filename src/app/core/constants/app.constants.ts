@@ -15,6 +15,8 @@ export const AuthServiceRoutes = {
 
 export const UserServiceRoutes = {
   getAllUsers: "usermanager/getUserMasterList",
+  getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
+  addUser: "usermanager/saveuser"
 };
 
 export const MerchantServiceRoutes = {
@@ -31,6 +33,10 @@ export const TerminalServiceRoutes = {
 
 export const LookupServiceRoutes = {
   getAllByCategory: "lookupdata/getdatabycategorycode"
+}
+
+export const RolePermssionServiceRoutes = {
+  getRolePermissions: "rolePermission/roles"
 }
 
 export const ServiceRequestHeaders = {
