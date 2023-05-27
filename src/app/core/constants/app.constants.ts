@@ -8,6 +8,7 @@ export const AppRoutes = {
   createMerchant: "merchants/create",
   terminals: "terminals",
   createTerminal: "terminals/create",
+  rolesList: "users/roles"
 };
 
 export const AuthServiceRoutes = {

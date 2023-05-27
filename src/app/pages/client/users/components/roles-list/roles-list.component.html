@@ -1,0 +1,37 @@
+<div class="top-section flexed">
+  <div class="intro flex-1">
+    <h3 class="heading__4 no-margin">User Roles</h3>
+    <span class="text__default text-dashboard-gray sub-text">
+      Monitor and manage user roles within your platform.
+    </span>
+  </div>
+</div>
+
+
+<div class="table-bg">
+  <div class="button-layout">
+    <div class="content-header">
+      <h2>Available Roles</h2>
+      <p>These roles provide access to predefined features within the platform.</p>
+    </div>
+
+    <div class="flexed">
+      <button
+        class="btn btn-primary no-margin-r"
+        (click)="toggleCreateRoleModal()"
+      >
+        Create Role
+      </button>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div *ngFor="let role of formattedRoleList" class="role-card mb-4 row-col__md-2">
+      <p>{{role?.count}} ACCOUNT(S)</p>
+      <h3>{{role?.entityCode}}</h3>
+      <p>This user has full access within the platform.</p>
+
+      <h4 id="view-role" class="mt-5">View Role</h4>
+    </div>
+  </div>
+</div>

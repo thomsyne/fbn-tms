@@ -9,12 +9,14 @@ import { UsersContainerComponent } from "./components/users-container/users-cont
 import { AllUsersComponent } from "./components/all-users/all-users.component";
 import { UsersRoutingModule } from "./users-routing.module";
 import { CreateUserComponent } from "./components/create-user/create-user.component";
+import { RolesListComponent } from "./components/roles-list/roles-list.component";
 
 @NgModule({
     declarations: [
       UsersContainerComponent,
       AllUsersComponent,
-      CreateUserComponent
+      CreateUserComponent,
+      RolesListComponent
     ],
     imports: [
       CommonModule,
