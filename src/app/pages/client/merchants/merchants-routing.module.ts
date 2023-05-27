@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { MerchantsContainerComponent } from "./components/merchants-container/merchants-container.component";
 import { AllMerchantsComponent } from "./components/all-merchants/all-merchants.component";
 import { CreateMerchantComponent } from "./components/create-merchant/create-merchant.component";
+import { MerchantDetailsComponent } from "./components/merchant-details/merchant-details.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
         path: "create",
         component: CreateMerchantComponent,
       },
+      {
+        path: ":merchantId/details",
+        component: MerchantDetailsComponent
+      }
     ],
   },
 ];

@@ -1,0 +1,135 @@
+.detail {
+    background: #FFFFFF;
+    border-radius: 4px;
+    height: 593px;
+    padding: 36px 24px;
+  
+    &__header {
+      border-bottom: 0.5px solid #dfdede;
+    }
+  
+    // &__flexed {
+    // }
+  }
+  
+  .transaction {
+    &__header {
+      border-bottom: 0.5px solid #dfdede;
+    }
+  }
+  
+  .hightlight-card {
+    // background: #fff;
+    // padding: 24px;
+    margin-top: 32px;
+    &__heading {
+      color: #1a1a1ab8;
+      border-bottom: 1px solid #f2f2f2;
+      padding-bottom: 10px;
+      margin: 0;
+      font-weight: lighter;
+    }
+  
+    &__section {
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+  
+      &__dates {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+    }
+  }
+  
+  .details-section {
+    &_left {
+      margin-right: 72px;
+    }
+    &--card {
+      background: #fff;
+      padding: 24px;
+      // height: 350px;
+      &_header {
+        h4,
+        p {
+          margin: 0;
+        }
+        p {
+          color: #4c9aff;
+          font-weight: normal;
+          font-size: 14px;
+        }
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px;
+      }
+    }
+    &--details {
+      position: relative;
+      .detail__head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #f2f2f2;
+      }
+    }
+  }
+  
+  .metadata-container {
+    padding: 20px 0;
+  }
+  
+  .metadata-entry {
+    display: flex;
+    margin-bottom: 24px;
+  
+    &_name,
+    &_value {
+      color: #1a1a1ab8;
+    }
+    &_value {
+      margin-left: auto;
+    }
+  }
+
+  .view-table {
+    margin-left: 12px;
+    .data-table__headings th {
+      background: #E7E6E6;
+    }
+  
+    .table-wrapper-header {
+      p {
+        font-size: 20px;
+        color: #1A1A1AB8;
+        margin-bottom: 0px;
+      }
+      hr {
+        border-top: 1px solid #DFDEDE;
+      }
+      margin-bottom: 20px;
+    }
+  
+    .data-table__body .data-table__row-col{
+      background: transparent;
+    }
+  }
+
+  .body-wrapper {
+    justify-content: space-between;
+  }
+
+  .topnav div.top-nav-wrapper {
+    width: fit-content;
+    .topnav-container-details {
+      margin-right: 5%;
+      width: 70%;
+      h4 {
+        text-align: right;
+      }
+    } 
+  }

@@ -6,7 +6,7 @@ import {
   clientNavConfigMinor,
 } from "./layout.constants";
 import { Router } from "@angular/router";
-import { UserDetails, StorageService } from "src/app/core";
+import { UserDetails, StorageService, LoggedInUserObject } from "src/app/core";
 import { AuthService } from "src/app/core/access-control/auth.service";
 import { SideNavigation } from "src/app/shared/navigation";
 
@@ -19,7 +19,7 @@ import { SideNavigation } from "src/app/shared/navigation";
 export class LayoutComponent implements OnInit {
 
   isNavOpen: boolean;
-  user: UserDetails;
+  user: LoggedInUserObject;
   permissions!: string[];
 
 
@@ -48,8 +48,8 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.storageService.userData$.subscribe((user) => {
-      this.user = user?.userDetails;
-      this.permissions = user?.userDetails?.permissions;
+      this.user = user;
+      this.permissions = user?.userPermissionList.map((x) => x.code);
     });
   }
 }

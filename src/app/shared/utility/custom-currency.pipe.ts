@@ -12,7 +12,7 @@ export class CustomCurrencyPipe implements PipeTransform {
   ){}
 
   transform(value: any): any {
-    switch (this.storageService.getLoggedInUser().userDetails.merchant?.currency){
+    switch (this.storageService.getLoggedInUser()?.ccy){
       case 'NGN':
         this.currencyLogo = '₦' + (value || 0)
         break

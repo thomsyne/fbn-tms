@@ -1,13 +1,14 @@
 import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { UserDetails } from '../model';
+import { LoggedInUserObject, UserDetails } from '../model';
 import { StorageService } from '../services';
+import { map } from 'rxjs';
 
 @Directive({
   selector: '[appPermission]'
 })
 export class PermissionsDirective {
 
-  private currentUser: UserDetails;
+  private currentUser: LoggedInUserObject;
   private permissions: string[] = [];
   private logicalOp = "AND";
   private isHidden = true;
@@ -20,13 +21,13 @@ export class PermissionsDirective {
   ) {}
 
   ngOnInit() {
-    //this.updateView();
-    // this.storageService.userData$
-    //   .pipe(map((user) => user!.userDetails))
-    //   .subscribe((user) => {
-    //     this.currentUser = user;
-    //     this.updateView();
-    //   });
+    this.updateView();
+    this.storageService.userData$
+      .pipe(map((user) => user))
+      .subscribe((user) => {
+        this.currentUser = user;
+        this.updateView();
+      });
   }
 
   @Input()
@@ -50,30 +51,30 @@ export class PermissionsDirective {
   private checkPermission() {
     let hasPermission = false;
 
-    // if (this.currentUser && this.currentUser.permissions) {
-    //   // console.log(this.currentUser.permissions);
+    if (this.currentUser && this.currentUser.userPermissionList) {
+       console.log(this.currentUser.userPermissionList);
 
-    //   for (const checkPermission of this.permissions) {
-    //     const permissionFound = this.currentUser.permissions.find(
-    //       (x) => x.toUpperCase() === checkPermission.toUpperCase()
-    //     );
+      for (const checkPermission of this.permissions) {
+        const permissionFound = this.currentUser.userPermissionList.map((x) => x.code).find(
+          (x) => x.toUpperCase() === checkPermission.toUpperCase()
+        );
 
-    //     if (permissionFound) {
-    //       hasPermission = true;
+        if (permissionFound) {
+          hasPermission = true;
 
-    //       if (this.logicalOp === "OR") {
-    //         break;
-    //       }
-    //     } else {
-    //       hasPermission = false;
-    //       if (this.logicalOp === "AND") {
-    //         break;
-    //       }
-    //     }
-    //   }
-    // }
+          if (this.logicalOp === "OR") {
+            break;
+          }
+        } else {
+          hasPermission = false;
+          if (this.logicalOp === "AND") {
+            break;
+          }
+        }
+      }
+    }
 
-    return true;
+    return hasPermission;
   }
 
 }
