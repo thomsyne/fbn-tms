@@ -77,10 +77,38 @@ export interface LoggedInUserObject {
     statusCode: number
   }
 
+  export interface TempTableDataResponse<T> {
+    content: T[];
+    pageable: string,
+    totalElements: number,
+    totalPages: number,
+    last: boolean,
+    numberOfElements: number,
+    size: number,
+    number: number,
+    first: boolean,
+    sort: {
+        sorted: boolean,
+        unsorted: boolean,
+        empty: boolean
+    },
+    empty: boolean
+}
+
 
   export interface ApiResponse<T> {
     data: T,
     error: any,
     status: string,
-    statusCode: number
+    statusCode: number,
+    code?: string,
+    desc?: string
   }
+
+  export interface JWTToken {
+    jti: string,
+    iat: number,
+    sub: string,
+    iss: string,
+    exp: number
+}

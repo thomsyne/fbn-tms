@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
-// import { ErrorHandlingInterceptorService } from "./error-handling-interceptor.service";
 import { InterceptorService } from "./interceptor.service";
+import { ErrorHandlingInterceptorService } from "./error-handling-interceptor.service";
 
 export const InterceptorProviders = [
   {
@@ -8,9 +8,9 @@ export const InterceptorProviders = [
     useClass: InterceptorService,
     multi: true,
   },
-  // {
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: ErrorHandlingInterceptorService,
-  //   multi: true,
-  // },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorHandlingInterceptorService,
+    multi: true,
+  },
 ];

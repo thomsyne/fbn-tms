@@ -1,3 +1,4 @@
+<lib-loader></lib-loader>
 <lib-modal
   [modalType]="modalData.modalType"
   [header]="modalData.header"
@@ -8,7 +9,7 @@
   (submit)="createUser()"
 >
   <lib-dynamic-form
-    [fieldset]="createStaffForm"
+    [fieldset]="form"
     [errors]="errors"
   ></lib-dynamic-form>
 </lib-modal>
