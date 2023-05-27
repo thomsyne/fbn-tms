@@ -1,0 +1,30 @@
+.button-layout {
+    justify-content: space-between;
+    .content-header {
+        h2 {
+            margin: 0px;
+            color: #000;
+        }
+        p {
+            margin-top: 4px;
+        }
+    }
+}
+
+.role-card {
+    border: 0.5px solid #DFDEDE;
+    padding: 30px 15px 20px 15px;
+    border-radius: 10px;
+
+    h3 {
+        color: #000;
+    }
+    #view-role {
+        color: var(--color-primary);
+        cursor: pointer;
+    }
+}
+
+.role-card:not(:first-child):not(:nth-child(6n)){
+    margin-left: 2rem;
+}

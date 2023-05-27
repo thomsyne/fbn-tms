@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BaseTableComponent } from 'src/app/core';
+import { AppRoutes, BaseTableComponent } from 'src/app/core';
 import { PaginationService, FileGenerationService } from 'src/app/shared/dynamic-table';
 import { UserService } from '../../services/user.service';
 import { downloadCSvheaders, filters, usersTableSettings } from './all-users.constants';
@@ -13,6 +13,8 @@ import { map } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AllUsersComponent extends BaseTableComponent implements OnInit {
+
+  appRoutes = AppRoutes
 
   showCreateUserModal: boolean;
   constructor(
@@ -78,6 +80,10 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
   setPager(paginationValues) {
     this.paginationValues = paginationValues;
     this.getUsers();
+  }
+
+  routeToRoles(){
+    this.router.navigate([this.appRoutes.rolesList])
   }
 
   generateCsv(){
