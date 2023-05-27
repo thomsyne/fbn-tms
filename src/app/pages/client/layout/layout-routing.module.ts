@@ -36,6 +36,13 @@ const routes: Routes = [
         ),
         canActivate: [ViewDashboardGuard]
       },
+      {
+        path: "reports",
+        loadChildren: () => import("../reports/reports.module").then(
+          m => m.ReportsModule
+        ),
+        canActivate: [ViewDashboardGuard]
+      },
     ]
   }
 ];

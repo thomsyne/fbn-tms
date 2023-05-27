@@ -113,7 +113,7 @@ export class InterceptorService {
     const currentTime = Math.floor(Date.now() / 1000);
 
     if (decoded.exp < currentTime) {
-      this.alertService.error('Session expired! Please login again!')
+      this.alertService.error('Session expired! Please login again!', {keepAfterRouteChange: true})
       this.authService.logout()
     }
   }
