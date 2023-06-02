@@ -5,11 +5,15 @@ import { AuthRoutingModule } from "./auth-routing.module";
 import { DynamicFormModule } from "src/app/shared/dynamic-form";
 import { UtilityModule, AlertModule } from "src/app/shared/utility";
 import { LayoutComponent } from "./layout/layout.component";
+import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { QrCodeComponent } from './qr-code/qr-code.component';
 
 @NgModule({
     declarations: [
       LoginComponent,
-      LayoutComponent
+      LayoutComponent,
+      EmailVerificationComponent,
+      QrCodeComponent
     ],
     imports: [
       CommonModule,
