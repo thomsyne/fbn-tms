@@ -1,6 +1,5 @@
-<div  class="cards-container">
-  <div  class="container">
-
+<div class="cards-container">
+  <div class="container">
     <div class="reposition-breadcrumbs" *ngIf="!currentUrl.includes('users')">
       <ul class="breadcrumbs-container">
         <li
@@ -11,18 +10,12 @@
         >
           <a class="crumb-link">My Users</a>
         </li>
-    
-        <li
-          class="crumb active-crumb"
-          *ngIf="currentUrl.includes('users')"
-        >
+
+        <li class="crumb active-crumb" *ngIf="currentUrl.includes('details')">
           <a class="crumb-link">Users Details</a>
         </li>
 
-        <li
-          class="crumb active-crumb"
-          *ngIf="currentUrl.includes('roles')"
-        >
+        <li class="crumb active-crumb" *ngIf="currentUrl.includes('roles')">
           <a class="crumb-link">Users Roles</a>
         </li>
       </ul>

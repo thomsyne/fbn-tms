@@ -21,6 +21,7 @@ export const UserServiceRoutes = {
   getAllUsers: "usermanager/getUserMasterList",
   getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
   addUser: "usermanager/saveuser",
+  getUserById: "usermanager/getUserDetails?username=",
 };
 
 export const MerchantServiceRoutes = {

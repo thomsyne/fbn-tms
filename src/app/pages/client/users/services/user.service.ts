@@ -1,7 +1,12 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, of, shareReplay } from "rxjs";
-import { ApiResponse, TableDataResponse, TempTableDataResponse, UserServiceRoutes } from "src/app/core";
+import {
+  ApiResponse,
+  TableDataResponse,
+  TempTableDataResponse,
+  UserServiceRoutes,
+} from "src/app/core";
 import { User, UserProfileRole } from "../model";
 import { environment } from "src/environments/environment";
 
@@ -46,19 +51,27 @@ export class UserService {
     }
   ): Observable<UserProfileRole[]> {
     let params = new HttpParams();
-    if (options.entityCode) params = params.append("entityCode", options.entityCode);
+    if (options.entityCode)
+      params = params.append("entityCode", options.entityCode);
 
     if (offset) params = params.append("pageNumber", offset);
     if (limit) params = params.append("pageSize", limit);
 
-    return this.httpClient
-      .get<UserProfileRole[]>(
-        `${BASE_URL}${USER_SERVICE_URL.getUserProfileRoles}`,
-        { params }
-      )
+    return this.httpClient.get<UserProfileRole[]>(
+      `${BASE_URL}${USER_SERVICE_URL.getUserProfileRoles}`,
+      { params }
+    );
   }
 
-  createUser(form: Partial<User>){
-    return this.httpClient.post<ApiResponse<any>>(`${BASE_URL}${USER_SERVICE_URL.addUser}`, form)
+  createUser(form: Partial<User>) {
+    return this.httpClient.post<ApiResponse<any>>(
+      `${BASE_URL}${USER_SERVICE_URL.addUser}`,
+      form
+    );
+  }
+  getUserById(userId: string): Observable<ApiResponse<User>> {
+    return this.httpClient.get<ApiResponse<User>>(
+      `${BASE_URL}${USER_SERVICE_URL.getUserById}${userId}`
+    );
   }
 }

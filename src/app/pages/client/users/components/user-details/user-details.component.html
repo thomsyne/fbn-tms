@@ -1,0 +1,71 @@
+<lib-loader></lib-loader>
+<div class="row">
+  <div class="details-section--card row-col__md-4">
+    <div class="details-section--card_header">
+      <div>
+        <!-- <h4 class="heading__4">{{ userInfo.username }} </h4> -->
+        <h4 class="heading__4">John Doe</h4>
+        <p class="role">Admin</p>
+        <!-- <p class="role">{{ userInfo.role }}</p> -->
+      </div>
+      <img src="" alt="" />
+    </div>
+
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Username</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.username }}
+      </span>
+    </div>
+
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Email Address</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.email }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Mobile Number</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.mobileNo }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Address</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.address }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Branch Code</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.branchCode }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Supervisor</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.supervisor }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Date Created</span>
+      <span class="metadata-entry_value">
+        {{ userInfo.createdDate }}
+      </span>
+    </div>
+    <div class="metadata-entry">
+      <span class="metadata-entry_name">Status</span>
+      <span
+        class="metadata-entry_value"
+        [ngClass]="true ? 'text-success' : 'text-warn'"
+      >
+        active
+      </span>
+    </div>
+    <div class="metadata-entry buttons">
+      <button class="btn btn-white">Lock User</button>
+      <button class="btn btn-primary">Reset Password</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.details-section--card {
+  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 24px;
+  .details-section--card_header {
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    border-bottom: 0.7px solid #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4,
+    p {
+      margin: 0;
+    }
+    .role {
+      color: #4c9aff;
+      line-height: 21px;
+    }
+  }
+  .metadata-entry {
+    margin-block: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .metadata-entry_name {
+      color: rgba(26, 26, 26, 0.72);
+    }
+    .metadata-entry_value {
+      color: #1a1a1a;
+    }
+  }
+  .buttons {
+    margin-top: 40px;
+  }
+}
