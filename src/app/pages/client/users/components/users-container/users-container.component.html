@@ -21,6 +21,42 @@
       </ul>
     </div>
 
+    <!-- dynamic header -->
+    <div class="top-section flexed mb-4"*ngIf="currentUrl.includes('users')">
+      <div class="intro flex-1">
+        <h1 class="heading__4 no-margin">User manager</h1>
+        <span class="text__default text-dashboard-gray sub-text">
+          View details of every user within the platform.
+        </span>
+      </div>
+    </div>
+
+    <!-- tabs -->
+    <ul
+      class="tabs"
+      *ngIf="
+        currentUrl !== 'create' && currentUrl !== 'update' && !currentUrl.includes('edit') &&
+        !currentUrl.includes('transactions') && !currentUrl.includes('profile') && !currentUrl.includes('inventory') && currentUrl !== 'stocks'
+      "
+    >
+      <li
+        class="tab-item" [routerLink]="'/users'"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact: true }"
+        *appPermission="['MANAGE_SYSTEM_CONFIGURATION']"
+      >
+        Users Listing
+      </li>
+      <li
+        class="tab-item"
+        routerLinkActive="active"
+        [routerLink]="'/users/unverified'"
+        *appPermission="['MANAGE_SYSTEM_CONFIGURATION']"
+      >
+        Unverified Users
+      </li>
+    </ul>
+
     <div class="" style="padding-top: 20px">
       <router-outlet></router-outlet>
     </div>

@@ -10,24 +10,28 @@ import { AllUsersComponent } from "./components/all-users/all-users.component";
 import { UsersRoutingModule } from "./users-routing.module";
 import { CreateUserComponent } from "./components/create-user/create-user.component";
 import { RolesListComponent } from "./components/roles-list/roles-list.component";
-import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserDetailsComponent } from "./components/user-details/user-details.component";
+import { UnverifiedUsersComponent } from "./components/unverified-users/unverified-users.component";
+import { OtpVerifyModule } from "src/app/shared/otp-verify/otp-verify.module";
 
 @NgModule({
-    declarations: [
-      UsersContainerComponent,
-      AllUsersComponent,
-      CreateUserComponent,
-      RolesListComponent,
-      UserDetailsComponent
-    ],
-    imports: [
-      CommonModule,
-      UsersRoutingModule,
-      DynamicTableModule,
-      UtilityModule,
-      SkeletonModule,
-      DynamicFormModule,
-      ModalModule
-    ]
-  })
-  export class UsersModule { }
+  declarations: [
+    UsersContainerComponent,
+    AllUsersComponent,
+    CreateUserComponent,
+    RolesListComponent,
+    UserDetailsComponent,
+    UnverifiedUsersComponent,
+  ],
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    DynamicTableModule,
+    UtilityModule,
+    SkeletonModule,
+    DynamicFormModule,
+    ModalModule,
+    OtpVerifyModule,
+  ],
+})
+export class UsersModule {}

@@ -4,6 +4,7 @@ import { UsersContainerComponent } from "./components/users-container/users-cont
 import { AllUsersComponent } from "./components/all-users/all-users.component";
 import { RolesListComponent } from "./components/roles-list/roles-list.component";
 import { UserDetailsComponent } from "./components/user-details/user-details.component";
+import { UnverifiedUsersComponent } from "./components/unverified-users/unverified-users.component";
 
 const routes: Routes = [
   {
@@ -17,10 +18,6 @@ const routes: Routes = [
       {
         path: "roles",
         component: RolesListComponent,
-      },
-      {
-        path: ":userId/details",
-        component: UserDetailsComponent,
       },
     ],
   },

@@ -18,6 +18,8 @@ export interface User {
   status?: string;
   language?: string;
   country?: string;
+  commonId?: any;
+  isChecked?: boolean;
 }
 
 export interface UserProfileRole {

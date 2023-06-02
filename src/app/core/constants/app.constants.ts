@@ -11,6 +11,8 @@ export const AppRoutes = {
   terminals: "terminals",
   createTerminal: "terminals/create",
   rolesList: "users/roles",
+  usersList: "users",
+  unverifiedUsers: "users/unverified",
 };
 
 export const AuthServiceRoutes = {
@@ -22,6 +24,8 @@ export const UserServiceRoutes = {
   getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
   addUser: "usermanager/saveuser",
   getUserById: "usermanager/getUserDetails?username=",
+  getUnverifiedUsers: "usermanager/getunverifyusers",
+  authorizeUsers: "usermanager/authorizeUser",
 };
 
 export const MerchantServiceRoutes = {
@@ -67,4 +71,9 @@ export const conditions: [string, string][] = [
   ["Under Repair", "Repair"],
   ["Damaged", "Damaged"],
   ["Lost", "Lost"],
+];
+
+export const verifyOptions: [string, string][] = [
+  ["Approve", "A"],
+  ["Reject", "R"],
 ];

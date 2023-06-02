@@ -18,18 +18,19 @@
     </lib-filters>
 
     <div class="flexed">
+
       <button
-      class="btn btn-outline-primary no-margin-r"
-      (click)="routeToRoles()"
+        class="btn btn-outline-primary no-margin-r"
+        (click)="toggleBulkUpdate('approve')"
       >
-        Manage Roles
+        Bulk Approve
       </button>
 
       <button
         class="btn btn-primary no-margin-r"
-        (click)="toggleCreateUserModal()"
+        (click)="toggleBulkUpdate('reject')"
       >
-        Add User
+        Bulk Reject
       </button>
     </div>
   </div>
@@ -42,6 +43,8 @@
           [records]="tableData$ | async"
           [settings]="tableSettings"
           [buttons]="buttonSettings"
+          [allowsSelection]="true"
+          (outputList)="receiveCheckedList($event)"
         ></lib-dynamic-table>
       </div>
 
@@ -68,10 +71,11 @@
   ></lib-skeleton-table>
 </div>
 
-<app-create-user
-  *ngIf="showCreateUserModal"
-  (closeModal)="toggleCreateUserModal()"
-  (refreshData)="getUsers()"
+<app-verify-modal
+  *ngIf="showBulkUpdateModal"
+  [bulkAction]="bulkAction"
+  [checkedItems]="checkedItems"
+  (closeModal)="toggleModalDisplay()"
+  (refreshData)="authorizeUsers($event)"
 >
-
-</app-create-user>
+</app-verify-modal>

@@ -1,0 +1,25 @@
+<lib-loader></lib-loader>
+<lib-modal
+  [modalType]="modalData.modalType"
+  [header]="modalData.header"
+  [subHeader]="modalData.subHeader"
+  [buttonText]="modalData.buttonText"
+  [isDisabled]="buttonDisabled"
+  (cancel)="closeModal.emit()"
+  (submit)="sendVerify()"
+>
+
+<div class="multiple">
+  Please confirm you want to {{bulkAction}} the following:
+  <div>
+    <ul>
+      <li *ngFor="let item of checkedItems">{{item.commonId}}</li>
+    </ul>
+  </div>
+</div>
+
+  <lib-dynamic-form
+    [fieldset]="form"
+    [errors]="errors"
+  ></lib-dynamic-form>
+</lib-modal>
