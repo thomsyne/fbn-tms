@@ -13,7 +13,7 @@ export class EmailVerificationComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
-  error: boolean = true;
+  error: boolean = false;
   routeToQrPage() {
     this.router.navigate([this.authRoutes.qrPage]);
   }
