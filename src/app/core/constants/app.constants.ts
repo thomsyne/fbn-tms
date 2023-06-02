@@ -1,5 +1,7 @@
 export const AuthRoutes = {
   login: "auth/login",
+  emailVerification: "auth/email-verification",
+  qrPage: "auth/qr-page",
 };
 
 export const AppRoutes = {
@@ -8,7 +10,7 @@ export const AppRoutes = {
   createMerchant: "merchants/create",
   terminals: "terminals",
   createTerminal: "terminals/create",
-  rolesList: "users/roles"
+  rolesList: "users/roles",
 };
 
 export const AuthServiceRoutes = {
@@ -18,7 +20,7 @@ export const AuthServiceRoutes = {
 export const UserServiceRoutes = {
   getAllUsers: "usermanager/getUserMasterList",
   getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
-  addUser: "usermanager/saveuser"
+  addUser: "usermanager/saveuser",
 };
 
 export const MerchantServiceRoutes = {
@@ -39,8 +41,8 @@ export const LookupServiceRoutes = {
 };
 
 export const RolePermssionServiceRoutes = {
-  getRolePermissions: "rolePermission/roles"
-}
+  getRolePermissions: "rolePermission/roles",
+};
 
 export const ServiceRequestHeaders = {
   "Content-Type": "application/json",

@@ -1,0 +1,22 @@
+.verification {
+  display: grid;
+  place-items: center;
+  .verification_logo {
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  h2 {
+    margin: 0;
+  }
+
+  .btn {
+    width: 100%;
+    color: #fff;
+    margin-top: 20px;
+  }
+}

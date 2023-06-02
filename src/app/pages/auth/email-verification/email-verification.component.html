@@ -1,0 +1,22 @@
+<div class="verification" *ngIf="!error; else errorContent">
+  <div class="verification_logo">
+    <img src="../../../../assets/icons/checked.png" alt="" />
+  </div>
+  <h2 class="text-success">Verification Message</h2>
+  <p class="text-center text__small">
+    Your Email has been successfully verified. You can proceed to scan your QR
+    COde
+  </p>
+  <button class="btn bg-primary" (click)="routeToQrPage()">Proceed</button>
+</div>
+<ng-template #errorContent>
+  <div class="verification">
+    <div class="verification_logo">
+      <img src="../../../../assets/icons/cancel.png" alt="" />
+    </div>
+    <h2 class="text-error">Verification Message</h2>
+    <p class="text-center text__small">
+      Your Email was not verified successfully. Please contact an administrator
+    </p>
+  </div>
+</ng-template>
