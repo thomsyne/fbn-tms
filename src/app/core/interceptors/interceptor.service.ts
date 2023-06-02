@@ -48,6 +48,8 @@ export class InterceptorService {
       USER_ROUTES.getAllUsers,
       USER_ROUTES.getUserProfileRoles,
       USER_ROUTES.addUser,
+      USER_ROUTES.getUnverifiedUsers,
+      USER_ROUTES.authorizeUsers,
 
       MERCHANT_ROUTES.getAllMerchants,
       MERCHANT_ROUTES.addMerchant,

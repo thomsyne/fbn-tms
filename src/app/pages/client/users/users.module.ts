@@ -10,13 +10,16 @@ import { AllUsersComponent } from "./components/all-users/all-users.component";
 import { UsersRoutingModule } from "./users-routing.module";
 import { CreateUserComponent } from "./components/create-user/create-user.component";
 import { RolesListComponent } from "./components/roles-list/roles-list.component";
+import { UnverifiedUsersComponent } from "./components/unverified-users/unverified-users.component";
+import { OtpVerifyModule } from "src/app/shared/otp-verify/otp-verify.module";
 
 @NgModule({
     declarations: [
       UsersContainerComponent,
       AllUsersComponent,
       CreateUserComponent,
-      RolesListComponent
+      RolesListComponent,
+      UnverifiedUsersComponent
     ],
     imports: [
       CommonModule,
@@ -25,7 +28,8 @@ import { RolesListComponent } from "./components/roles-list/roles-list.component
       UtilityModule,
       SkeletonModule,
       DynamicFormModule,
-      ModalModule
+      ModalModule,
+      OtpVerifyModule
     ]
   })
   export class UsersModule { }

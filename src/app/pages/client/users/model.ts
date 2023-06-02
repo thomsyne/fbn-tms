@@ -14,7 +14,9 @@ export interface User {
     userRole?: string,
     status?: string,
     language?: string,
-    country?: string
+    country?: string,
+    commonId?: any,
+    isChecked?: boolean
 
 }
 

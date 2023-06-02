@@ -181,7 +181,7 @@ export class CreateUserComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
+    this.subscriptions.forEach((sub) => sub.unsubscribe())
   }
 
 }

@@ -57,6 +57,10 @@ export class ErrorHandlingInterceptorService implements HttpInterceptor {
           } else if (err.status == 500 ){
             errorMessage = "Server Error"
             this.authService.logout()
+          }
+          else if (err.status == 403 ){
+            errorMessage = "Token Expired! Please login again"
+            this.authService.logout()
           } else {
             errorMessage = err.error.message;
           }
