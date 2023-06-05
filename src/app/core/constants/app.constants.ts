@@ -23,7 +23,7 @@ export const UserServiceRoutes = {
   getAllUsers: "usermanager/getUserMasterList",
   getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
   addUser: "usermanager/saveuser",
-  getUserById: "usermanager/getUserDetails?username=",
+  getUserById: "usermanager/getUserDetails",
   getUnverifiedUsers: "usermanager/getunverifyusers",
   authorizeUsers: "usermanager/authorizeUser",
 };

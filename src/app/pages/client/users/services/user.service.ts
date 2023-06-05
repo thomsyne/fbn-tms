@@ -70,9 +70,12 @@ export class UserService {
       form
     );
   }
-  getUserById(userId: string): Observable<ApiResponse<User>> {
-    return this.httpClient.get<ApiResponse<User>>(
-      `${BASE_URL}${USER_SERVICE_URL.getUserById}${userId}`
+  getUserById(userId: string): Observable<User> {
+    let params = new HttpParams();
+    if (userId) params = params.append("username", userId);
+
+    return this.httpClient.get<User>(
+      `${BASE_URL}${USER_SERVICE_URL.getUserById}`, { params }
     );
   }
 

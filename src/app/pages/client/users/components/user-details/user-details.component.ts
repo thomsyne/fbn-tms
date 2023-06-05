@@ -35,7 +35,7 @@ export class UserDetailsComponent implements OnInit {
     this.loader.start();
     this.userService.getUserById(this.userId).subscribe((response) => {
       this.loader.end();
-      this.userInfo = response.data;
+      this.userInfo = response;
       this.cd.detectChanges();
     });
   }
