@@ -12,7 +12,7 @@ export const AppRoutes = {
   createTerminal: "terminals/create",
   rolesList: "users/roles",
   usersList: "users",
-  unverifiedUsers: "users/unverified"
+  unverifiedUsers: "users/unverified",
 };
 
 export const AuthServiceRoutes = {
@@ -23,8 +23,9 @@ export const UserServiceRoutes = {
   getAllUsers: "usermanager/getUserMasterList",
   getUserProfileRoles: "userProfileRoles/getUserProfileRoles",
   addUser: "usermanager/saveuser",
+  getUserById: "usermanager/getUserDetails",
   getUnverifiedUsers: "usermanager/getunverifyusers",
-  authorizeUsers: "usermanager/authorizeUser"
+  authorizeUsers: "usermanager/authorizeUser",
 };
 
 export const MerchantServiceRoutes = {
@@ -74,5 +75,5 @@ export const conditions: [string, string][] = [
 
 export const verifyOptions: [string, string][] = [
   ["Approve", "A"],
-  ["Reject", "R"]
+  ["Reject", "R"],
 ];

@@ -1,20 +1,26 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AppRoutes, BaseTableComponent } from 'src/app/core';
-import { PaginationService, FileGenerationService } from 'src/app/shared/dynamic-table';
-import { UserService } from '../../services/user.service';
-import { downloadCSvheaders, filters, usersTableSettings } from './all-users.constants';
-import { map } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AppRoutes, BaseTableComponent } from "src/app/core";
+import {
+  PaginationService,
+  FileGenerationService,
+} from "src/app/shared/dynamic-table";
+import { UserService } from "../../services/user.service";
+import {
+  downloadCSvheaders,
+  filters,
+  usersTableSettings,
+} from "./all-users.constants";
+import { map } from "rxjs";
 
 @Component({
-  selector: 'app-all-users',
-  templateUrl: './all-users.component.html',
-  styleUrls: ['./all-users.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-all-users",
+  templateUrl: "./all-users.component.html",
+  styleUrls: ["./all-users.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllUsersComponent extends BaseTableComponent implements OnInit {
-
-  appRoutes = AppRoutes
+  appRoutes = AppRoutes;
 
   showCreateUserModal: boolean;
   constructor(
@@ -31,12 +37,12 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     this.buttonSettings = [
       {
         title: "Open",
-        params: ["id"],
+        params: ["username"],
         class: ["btn__sm", "btn", "btn-outline-primary"],
-        func: (id) => {
-          this.router.navigate([`/users/${id}/details`], {
+        func: (username) => {
+          this.router.navigate([`/users/${username}/details`], {
             queryParams: {
-              id: id,
+              username: username,
             },
           });
         },
@@ -44,27 +50,26 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getUsers() {
-
-    console.log(this.paginationValues)
+    console.log(this.paginationValues);
 
     const { username } = this.filterValues;
+
     const response$ = this.userService.fetchAllUsers(
       this.paginationValues.pageIndex,
       this.paginationValues.pageSize,
       {
-        username
+        username,
       }
     );
 
     // this.count$ = response$.pipe(map((res) => res.recordsTotal));
-     this.tableData$ = response$.pipe(map((res) => res.content));
+    this.tableData$ = response$.pipe(map((res) => res.content));
   }
 
-    setFilters(filters) {
+  setFilters(filters) {
     this.filterValues = filters;
     this.paginationValues.pageIndex =
       +this.route.snapshot.queryParamMap.get("pageIndex") || 1;
@@ -73,7 +78,7 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     this.getUsers();
   }
 
-    toggleCreateUserModal() {
+  toggleCreateUserModal() {
     this.showCreateUserModal = !this.showCreateUserModal;
   }
 
@@ -82,12 +87,9 @@ export class AllUsersComponent extends BaseTableComponent implements OnInit {
     this.getUsers();
   }
 
-  routeToRoles(){
-    this.router.navigate([this.appRoutes.rolesList])
+  routeToRoles() {
+    this.router.navigate([this.appRoutes.rolesList]);
   }
 
-  generateCsv(){
-
-  }
-
+  generateCsv() {}
 }
